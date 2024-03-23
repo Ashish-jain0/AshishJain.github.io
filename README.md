@@ -55,7 +55,7 @@
 </head>
 <body>
     <header>
-        <img src="C:\Users\USER\Downloads" alt="Open Talk Logo" class="logo">
+        <img src="[C:\Users\USER\Downloads](https://drive.google.com/file/d/1vmi3QCp2s8DkIdkA8MOH24vRS4craDm9/view?usp=sharing)" alt="Open Talk Logo" class="logo">
         <h1>Welcome to Open Talk - Learn English</h1>
     </header>
     <nav>
