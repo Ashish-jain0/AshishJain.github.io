@@ -9,7 +9,7 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-image: url('https://drive.google.com/uc?export=view&id=1vmi3QCp2s8DkIdkA8MOH24vRS4craDm9');
+            background-image: url('[https://drive.google.com/uc?export=view&id=1vmi3QCp2s8DkIdkA8MOH24vRS4craDm9](https://drive.google.com/file/d/1vmi3QCp2s8DkIdkA8MOH24vRS4craDm9/view?usp=sharing)');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat; /* Ensure the background doesn't repeat */
