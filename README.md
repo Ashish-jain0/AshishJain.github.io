@@ -55,7 +55,7 @@
 </head>
 <body>
     <header>
-        <img src="company_logo.gif" alt="Open Talk Logo" class="logo">
+        <img src="https://play.google.com/store/apps/details?id=com.pratik.pansare&hl=en_US" alt="Open Talk Logo" class="logo">
         <h1>Welcome to Open Talk - Learn English</h1>
     </header>
     <nav>
