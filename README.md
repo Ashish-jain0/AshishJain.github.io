@@ -57,8 +57,8 @@
         </ul>
         <h2>Contact Us</h2>
         <p>
-            Email: officialopentalk.com<br>
-            
+            Email: info@opentalk.com<br>
+            Phone: +1 (123) 456-7890
         </p>
     </div>
 </body>
