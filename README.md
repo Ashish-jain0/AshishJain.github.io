@@ -9,12 +9,13 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-image: url('DIRECT_IMAGE_LINK_HERE');
+            background-image: url('https://drive.google.com/uc?export=view&id=1vmi3QCp2s8DkIdkA8MOH24vRS4craDm9');
             background-size: cover;
             background-position: center;
+            background-repeat: no-repeat; /* Ensure the background doesn't repeat */
         }
         header {
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: rgba(0, 0, 0, 0.5); /* Add some transparency */
             color: #fff;
             padding: 20px;
             text-align: center;
@@ -28,7 +29,7 @@
             max-width: 800px;
             margin: 20px auto;
             padding: 20px;
-            background-color: rgba(255, 255, 255, 0.8);
+            background-color: rgba(255, 255, 255, 0.8); /* Add some transparency */
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
