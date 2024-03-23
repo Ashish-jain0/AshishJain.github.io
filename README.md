@@ -9,81 +9,57 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #f2f2f2;
         }
         header {
-            background-color: #007bff;
+            background-color: #333;
             color: #fff;
             padding: 20px;
             text-align: center;
         }
-        nav {
-            background-color: #f0f0f0;
-            padding: 10px 0;
-            text-align: center;
-        }
-        nav a {
-            margin: 0 10px;
-            color: #333;
-            text-decoration: none;
-        }
-        nav a:hover {
-            color: #007bff;
-        }
-        .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 0 20px;
-        }
-        .logo {
+        #logo {
             max-width: 200px;
             display: block;
             margin: 0 auto;
         }
-        .section {
-            margin-bottom: 40px;
-        }
-        footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
             padding: 20px;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        p {
+            text-align: justify;
         }
     </style>
 </head>
 <body>
     <header>
-        <img src="[C:\Users\USER\Downloads](https://drive.google.com/file/d/1vmi3QCp2s8DkIdkA8MOH24vRS4craDm9/view?usp=sharing)" alt="Open Talk Logo" class="logo">
-        <h1>Welcome to Open Talk - Learn English</h1>
+        <img src="https://drive.google.com/uc?export=view&id=1vmi3QCp2s8DkIdkA8MOH24vRS4craDm9" alt="Open Talk Logo" id="logo">
+        <h1>Welcome to Open Talk</h1>
     </header>
-    <nav>
-        <a href="#about">About</a>
-        <a href="#courses">Courses</a>
-        <a href="#games">Games</a>
-        <a href="#contact">Contact</a>
-    </nav>
     <div class="container">
-        <section id="about" class="section">
-            <h2>About Open Talk</h2>
-            <p>Open Talk is dedicated to making English learning fun and interactive.</p>
-        </section>
-        <section id="courses" class="section">
-            <h2>Our Courses</h2>
-            <p>Explore our range of English courses designed to fit your learning needs.</p>
-        </section>
-        <section id="games" class="section">
-            <h2>Learning Games</h2>
-            <p>Play educational games to improve your English skills.</p>
-        </section>
-        <section id="contact" class="section">
-            <h2>Contact Us</h2>
-            <p>If you have any questions or inquiries, feel free to contact us.</p>
-        </section>
+        <h2>About Us</h2>
+        <p>
+            Open Talk is dedicated to helping you learn English in a fun and interactive way. Our platform offers a range of resources and activities to improve your language skills.
+        </p>
+        <h2>Services</h2>
+        <ul>
+            <li>Interactive English learning games</li>
+            <li>Online English courses</li>
+            <li>Live conversation practice sessions</li>
+            <li>Grammar and vocabulary exercises</li>
+        </ul>
+        <h2>Contact Us</h2>
+        <p>
+            Email: info@opentalk.com<br>
+            Phone: +1 (123) 456-7890
+        </p>
     </div>
-    <footer>
-        &copy; 2024 Open Talk - Learn English
-    </footer>
 </body>
 </html>
