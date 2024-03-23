@@ -85,7 +85,7 @@
         <h2>Contact Us</h2>
         <p class="contact-info">
             Email: <a href="mailto:officialopentalk@gmail.com">officialopentalk@gmail.com</a><br>
-            Telegram Community: <a href="https://t.me/+Cbv_rEEYo482N2Y1">Join Our Telegram Community</a>
+             <a href="https://t.me/+Cbv_rEEYo482N2Y1">Join Our Telegram Community</a>
         </p>
     </div>
 </body>
