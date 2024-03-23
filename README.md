@@ -9,7 +9,7 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-image: url('DIRECT_LINK_TO_GIF_IMAGE');
+            background-image: url('https://drive.google.com/uc?export=view&id=1vmi3QCp2s8DkIdkA8MOH24vRS4craDm9');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
