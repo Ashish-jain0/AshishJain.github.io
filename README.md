@@ -59,8 +59,8 @@
         </ul>
         <h2>Contact Us</h2>
         <p>
-            Email: info@opentalk.com<br>
-            Phone: +1 (123) 456-7890
+            Email: officialopentalk@gmail.com<br>
+            Telegram Community: <a href="https://t.me/+Cbv_rEEYo482N2Y1">Join Our Telegram Community</a>
         </p>
     </div>
 </body>
