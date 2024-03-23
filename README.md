@@ -9,10 +9,12 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f2f2f2;
+            background-image: url('https://drive.google.com/uc?export=view&id=1vmi3QCp2s8DkIdkA8MOH24vRS4craDm9');
+            background-size: cover;
+            background-position: center;
         }
         header {
-            background-color: #333;
+            background-color: rgba(0, 0, 0, 0.5); /* Add some transparency */
             color: #fff;
             padding: 20px;
             text-align: center;
@@ -26,7 +28,7 @@
             max-width: 800px;
             margin: 20px auto;
             padding: 20px;
-            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.8); /* Add some transparency */
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
@@ -40,7 +42,6 @@
 </head>
 <body>
     <header>
-        <img src="https://drive.google.com/uc?export=view&id=1vmi3QCp2s8DkIdkA8MOH24vRS4craDm9" alt="Open Talk Logo" id="logo">
         <h1>Welcome to Open Talk</h1>
     </header>
     <div class="container">
