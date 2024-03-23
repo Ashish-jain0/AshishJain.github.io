@@ -15,7 +15,7 @@
             background-repeat: no-repeat;
         }
         header {
-            background-color: rgba(0, 0, 0, 0.5); /* Add some transparency */
+            background-color: rgba(0, 0, 0, 0.5);
             color: #fff;
             padding: 20px;
             text-align: center;
@@ -29,7 +29,7 @@
             max-width: 800px;
             margin: 20px auto;
             padding: 20px;
-            background-color: rgba(255, 255, 255, 0.8); /* Add some transparency */
+            background-color: rgba(255, 255, 255, 0.8);
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
