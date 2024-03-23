@@ -9,10 +9,10 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-image: url('[https://drive.google.com/uc?export=view&id=1vmi3QCp2s8DkIdkA8MOH24vRS4craDm9](https://drive.google.com/file/d/1vmi3QCp2s8DkIdkA8MOH24vRS4craDm9/view?usp=sharing)');
+            background-image: url('DIRECT_LINK_TO_GIF_IMAGE');
             background-size: cover;
             background-position: center;
-            background-repeat: no-repeat; /* Ensure the background doesn't repeat */
+            background-repeat: no-repeat;
         }
         header {
             background-color: rgba(0, 0, 0, 0.5); /* Add some transparency */
