@@ -64,7 +64,6 @@ function renderHangman() {
 function renderButtons() {
     const buttonsContainer = document.createElement('div');
     buttonsContainer.id = 'hangman-buttons';
-    
     for (let i = 97; i <= 122; i++) { // ASCII codes for lowercase letters
         const letter = String.fromCharCode(i);
         const button = document.createElement('button');
@@ -74,7 +73,6 @@ function renderButtons() {
         });
         buttonsContainer.appendChild(button);
     }
-    
     document.getElementById('hangman-container').appendChild(buttonsContainer);
 }
 
@@ -91,11 +89,6 @@ function handleGuess(letter) {
     }
 }
 
-function updateHangmanImage() {
-    const hangmanImg = document.getElementById('hangman-img');
-    hangmanImg.src = `hangman${6 - triesLeft}.jpg`;
-}
-
 function updateHangmanWord() {
     let newHangmanWord = '';
     for (let i = 0; i < chosenWord.length; i++) {
@@ -107,6 +100,10 @@ function updateHangmanWord() {
     }
     hangmanWord = newHangmanWord;
     document.getElementById('hangman-word').textContent = hangmanWord;
+}
+
+function updateHangmanImage() {
+    document.getElementById('hangman-img').src = `hangman${6 - triesLeft}.jpg`;
 }
 
 function checkGameStatus() {
