@@ -1,6 +1,3 @@
-I apologize for the oversight. Let me provide the code with the correct implementation:
-
-```javascript
 // hangman.js
 
 const categories = {
