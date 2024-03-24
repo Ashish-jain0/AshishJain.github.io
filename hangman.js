@@ -53,7 +53,6 @@ function showCategorySelection() {
             const index = Math.floor(Math.random() * categories[chosenCategory].length);
             chosenWord = categories[chosenCategory][index];
             chosenClue = clues[chosenCategory][index];
-            document.getElementById('category-selection').remove();
             startGame();
         });
         categorySelectionDiv.appendChild(categoryButton);
@@ -66,13 +65,13 @@ function startGame() {
     document.getElementById('hangman-container').innerHTML = ''; // Clear category selection
     document.getElementById('hangman-container').innerHTML = `
         <div id="category">Category: ${chosenCategory}</div>
-        <div id="clue">Clue: ${chosenClue}</div>
         <div id="hangman-word"></div>
         <div id="hangman-image">
             <img src="hangman0.png" alt="Hangman" id="hangman-img">
         </div>
         <div id="tries-left">Tries Left: ${triesLeft}</div>
         <div id="score">Score: ${score}</div>
+        <div id="clue" style="font-style: italic;">Clue: ${chosenClue}</div>
         <div id="hangman-buttons"></div>
         <div id="hangman-status"></div>
     `;
@@ -90,8 +89,15 @@ function renderButtons() {
     for (let i = 97; i <= 122; i++) { // ASCII codes for lowercase letters
         const letter = String.fromCharCode(i);
         const button = document.createElement('button');
-        button.textContent = letter;
-        button.classList.add('luxury-button'); // Adding a class for luxury style
+        button.textContent = letter.toUpperCase(); // Display uppercase letters
+        button.style.fontFamily = 'Arial, sans-serif'; // Change font style
+        button.style.border = '2px solid #333'; // Add border
+        button.style.borderRadius = '5px'; // Rounded corners
+        button.style.padding = '10px'; // Adjust padding
+        button.style.margin = '5px'; // Adjust margin
+        button.style.background = 'linear-gradient(to bottom, #fff, #eee)'; // Gradient background
+        button.style.color = '#333'; // Text color
+        button.style.cursor = 'pointer'; // Cursor style
         button.addEventListener('click', function() {
             handleGuess(letter);
         });
@@ -134,13 +140,4 @@ function checkGameStatus() {
     if (hangmanWord === chosenWord) {
         document.getElementById('hangman-status').textContent = 'You won!';
         score += 10;
-        document.getElementById('score').textContent = `Score: ${score}`;
-        setTimeout(() => {
-            showCategorySelection(); // Proceed to the next level after a delay
-        }, 2000);
-    } else if (triesLeft === 0) {
-        document.getElementById('hangman-status').textContent = 'You lost!';
-    }
-}
-
-initializeHangman();
+       
