@@ -7,36 +7,24 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
+            background-color: #f4f4f4;
+            color: #333;
             margin: 0;
             padding: 0;
         }
         header {
-            background-color: #333;
+            background-color: #007bff;
             color: #fff;
             text-align: center;
-            padding: 20px 0;
+            padding: 20px;
+        }
+        h1 {
+            margin: 0;
         }
         .container {
             max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        h1, h2 {
-            color: #333;
-            text-align: center;
-        }
-        .games {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 40px;
-        }
-        .game {
-            background-color: #fff;
-            border: 2px solid #333;
-            border-radius: 5px;
-            padding: 20px;
-            text-align: center;
+            margin: 20px auto;
+            padding: 0 20px;
         }
         footer {
             background-color: #333;
@@ -44,47 +32,28 @@
             text-align: center;
             padding: 10px 0;
             position: fixed;
-            bottom: 0;
             width: 100%;
+            bottom: 0;
         }
     </style>
 </head>
 <body>
     <header>
-        <img src="company-logo.gif" alt="Open Talk Logo">
-        <h1>Welcome to Open Talk - Learn English</h1>
+        <h1>Open Talk - Learn English</h1>
+        <img src="company_logo.gif" alt="Open Talk Logo" width="100">
     </header>
     <div class="container">
-        <h2>Choose a Game to Play and Learn English:</h2>
-        <div class="games">
-            <div class="game" id="scrabble">
-                <h3>Scrabble</h3>
-                <!-- Scrabble Game Implementation -->
-            </div>
-            <div class="game" id="hangman">
-                <h3>Hangman</h3>
-                <!-- Hangman Game Implementation -->
-            </div>
-            <div class="game" id="word-association">
-                <h3>Word Association</h3>
-                <!-- Word Association Game Implementation -->
-            </div>
-        </div>
+        <h2>Welcome to Open Talk!</h2>
+        <p>Play and learn English with our fun games.</p>
+        <h3>Games:</h3>
+        <ul>
+            <li><a href="scrabble.html">Scrabble</a></li>
+            <li><a href="hangman.html">Hangman</a></li>
+            <li><a href="word_association.html">Word Association</a></li>
+        </ul>
     </div>
     <footer>
-        <p>&copy; 2024 Open Talk - Learn English</p>
+        <p>&copy; 2024 Open Talk</p>
     </footer>
-
-    <!-- JavaScript for Games -->
-    <script>
-        // Scrabble Game Implementation
-        // Implement Scrabble game logic here
-        
-        // Hangman Game Implementation
-        // Implement Hangman game logic here
-        
-        // Word Association Game Implementation
-        // Implement Word Association game logic here
-    </script>
 </body>
 </html>
