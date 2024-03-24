@@ -6,39 +6,70 @@
     <title>Open Talk Application</title>
     <style>
         body {
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
-            background-image: url('open_talk_logo.gif');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-position: center;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
-
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
         h1 {
-            color: #fff;
-            text-align: center;
-            font-size: 36px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin: 0;
         }
-
-        p {
+        nav {
+            background-color: #555;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 18px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        section {
+            padding: 20px;
+        }
+        footer {
+            background-color: #333;
             color: #fff;
             text-align: center;
-            font-size: 18px;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
         }
     </style>
 </head>
 <body>
-    <div>
+    <header>
         <h1>Welcome to Open Talk Application</h1>
-        <p>Learn English by playing or learning</p>
-    </div>
+    </header>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <section id="home">
+        <h2>Learn English by Playing or Learning</h2>
+        <p>Welcome to Open Talk Application! Whether you prefer learning English through games or structured lessons, we have something for everyone.</p>
+    </section>
+    <section id="about">
+        <h2>About Us</h2>
+        <p>Open Talk Application is dedicated to making learning English fun and accessible to all. Our team of language experts and developers work tirelessly to provide you with the best learning experience.</p>
+    </section>
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>If you have any questions or feedback, feel free to reach out to us at <a href="mailto:contact@opentalk.com">contact@opentalk.com</a>.</p>
+    </section>
+    <footer>
+        &copy; 2024 Open Talk Application. All rights reserved.
+    </footer>
 </body>
 </html>
