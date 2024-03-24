@@ -3,25 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hangman</title>
-    <link rel="stylesheet" href="hangman.css">
+    <title>Hangman Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #hangman-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 90%;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #ff7e5f;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #ff6b4d;
+        }
+
+        #hangman-buttons {
+            margin-top: 20px;
+        }
+
+        #hangman-word {
+            font-size: 24px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        #hangman-image img {
+            max-width: 100%;
+            margin-top: 20px;
+        }
+
+        #tries-left, #score, #category, #clue {
+            margin-top: 10px;
+            font-size: 18px;
+        }
+
+        #hangman-status {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
     <div id="hangman-container">
-        <h1>Hangman</h1>
-        <div class="game-info">
-            <div class="info-item" id="category">Category: </div>
-            <div class="info-item" id="clue">Clue: </div>
-            <div class="info-item" id="tries-left">Tries Left: </div>
-            <div class="info-item" id="score">Score: </div>
-        </div>
+        <h1>Hangman Game</h1>
+        <div id="category" style="display: none;"></div>
+        <div id="clue" style="display: none;"></div>
         <div id="hangman-word"></div>
         <div id="hangman-image">
-            <img src="hangman0.jpeg" alt="Hangman" id="hangman-img">
+            <img src="hangman0.jpg" alt="Hangman" id="hangman-img">
         </div>
+        <div id="tries-left" style="display: none;"></div>
+        <div id="score" style="display: none;"></div>
         <div id="hangman-buttons"></div>
-        <div id="hangman-status"></div>
+        <div id="hangman-status" style="display: none;"></div>
     </div>
-    <script src="hangman.js"></script>
+    <script>
+        // JavaScript logic goes here
+    </script>
 </body>
 </html>
