@@ -21,19 +21,6 @@ let hangmanWord = '';
 let triesLeft = 6;
 let score = 0;
 
-const happyPerson = `
-   O
-  /|\\
-  / \\
-`;
-
-const hangedPerson = `
-   O
-  /|\\
-   |
-  / \\
-`;
-
 function initializeHangman() {
     showCategorySelection();
 }
@@ -68,7 +55,15 @@ function startGame() {
 function renderHangman() {
     const hangmanImageDiv = document.createElement('div');
     hangmanImageDiv.id = 'hangman-image';
-    hangmanImageDiv.innerHTML = happyPerson;
+    hangmanImageDiv.innerHTML = `
+         ___
+        |   |
+        |   ${triesLeft < 6 ? 'O' : ''}
+        |  ${triesLeft < 4 ? '/' : ''}${triesLeft < 5 ? '|' : ''}${triesLeft < 3 ? '\\' : ''}
+        |  ${triesLeft < 2 ? '/' : ''} ${triesLeft < 1 ? '\\' : ''}
+        |
+        =========
+    `;
     document.getElementById('hangman-container').appendChild(hangmanImageDiv);
 }
 
@@ -120,7 +115,6 @@ function checkGameStatus() {
             showCategorySelection();
         }, 2000);
     } else if (triesLeft === 0) {
-        document.getElementById('hangman-image').innerHTML = hangedPerson;
         document.getElementById('hangman-status').textContent = 'You lost!';
     }
 }
