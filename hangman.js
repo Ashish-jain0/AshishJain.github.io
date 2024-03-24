@@ -1,17 +1,17 @@
 // hangman.js
 
 const categories = {
-    "Colors 🎨": ['red', 'blue', 'green', 'yellow', 'orange', 'purple'],
-    "Shapes ⬜️": ['square', 'circle', 'triangle', 'rectangle', 'hexagon'],
-    "Movies 🎥": ['avatar', 'titanic', 'inception', 'jaws', 'starwars'],
-    "Superheroes 🦸": ['superman', 'batman', 'spiderman', 'wonderwoman', 'thor'],
-    "Countries 🏳️": ['usa', 'china', 'india', 'russia', 'brazil'],
-    "Naruto 🌀": ['naruto', 'sasuke', 'sakura', 'kakashi', 'hinata'],
-    "Flowers 🌼": ['rose', 'lily', 'daisy', 'sunflower', 'tulip'],
-    "Disney 🧜‍♀️": ['mickey', 'minnie', 'donald', 'goofy', 'ariel'],
-    "HarryPotter 🧙": ['harry', 'hermione', 'ron', 'dumbledore', 'snape'],
-    "Music 🎸": ['guitar', 'piano', 'violin', 'drums', 'trumpet'],
-    "Fantasy 🦄": ['unicorn', 'dragon', 'wizard', 'fairy', 'elf']
+    "Colors 🎨": { words: ['red', 'blue', 'green', 'yellow', 'orange', 'purple'], clue: 'Colors around us' },
+    "Shapes ⬜️": { words: ['square', 'circle', 'triangle', 'rectangle', 'hexagon'], clue: 'Geometric shapes' },
+    "Movies 🎥": { words: ['avatar', 'titanic', 'inception', 'jaws', 'starwars'], clue: 'Famous movies' },
+    "Superheroes 🦸": { words: ['superman', 'batman', 'spiderman', 'wonderwoman', 'thor'], clue: 'Legendary heroes' },
+    "Countries 🏳️": { words: ['usa', 'china', 'india', 'russia', 'brazil'], clue: 'Global nations' },
+    "Naruto 🌀": { words: ['naruto', 'sasuke', 'sakura', 'kakashi', 'hinata'], clue: 'Characters from Naruto' },
+    "Flowers 🌼": { words: ['rose', 'lily', 'daisy', 'sunflower', 'tulip'], clue: 'Beautiful blooms' },
+    "Disney 🧜‍♀️": { words: ['mickey', 'minnie', 'donald', 'goofy', 'ariel'], clue: 'Disney characters' },
+    "HarryPotter 🧙": { words: ['harry', 'hermione', 'ron', 'dumbledore', 'snape'], clue: 'Characters from Harry Potter' },
+    "Music 🎸": { words: ['guitar', 'piano', 'violin', 'drums', 'trumpet'], clue: 'Musical instruments' },
+    "Fantasy 🦄": { words: ['unicorn', 'dragon', 'wizard', 'fairy', 'elf'], clue: 'Fantasy creatures' }
 };
 
 let chosenCategory = null;
@@ -35,7 +35,7 @@ function showCategorySelection() {
         categoryButton.textContent = category;
         categoryButton.addEventListener('click', function() {
             chosenCategory = category;
-            chosenWord = categories[chosenCategory][Math.floor(Math.random() * categories[chosenCategory].length)];
+            chosenWord = categories[chosenCategory].words[Math.floor(Math.random() * categories[chosenCategory].words.length)];
             document.getElementById('category-selection').remove();
             startGame();
         });
@@ -49,6 +49,7 @@ function startGame() {
     document.getElementById('hangman-container').innerHTML = ''; // Clear category selection
     document.getElementById('hangman-container').innerHTML = `
         <div id="category">Category: ${chosenCategory}</div>
+        <div id="clue">Clue: ${categories[chosenCategory].clue}</div>
         <div id="hangman-word"></div>
         <div id="hangman-image">
             <img src="hangman0.png" alt="Hangman" id="hangman-img">
@@ -95,30 +96,4 @@ function handleGuess(letter) {
 
 function updateHangmanWord() {
     let newHangmanWord = '';
-    for (let i = 0; i < chosenWord.length; i++) {
-        if (guessedLetters.includes(chosenWord[i])) {
-            newHangmanWord += chosenWord[i];
-        } else {
-            newHangmanWord += '_';
-        }
-    }
-    hangmanWord = newHangmanWord;
-    document.getElementById('hangman-word').textContent = hangmanWord;
-}
-
-function updateHangmanImage() {
-    document.getElementById('hangman-img').src = `hangman${6 - triesLeft}.png`;
-    document.getElementById('tries-left').textContent = `Tries Left: ${triesLeft}`;
-}
-
-function checkGameStatus() {
-    if (hangmanWord === chosenWord) {
-        document.getElementById('hangman-status').textContent = 'You won!';
-        score += 10;
-        document.getElementById('score').textContent = `Score: ${score}`;
-    } else if (triesLeft === 0) {
-        document.getElementById('hangman-status').textContent = 'You lost!';
-    }
-}
-
-initializeHangman();
+    for (
