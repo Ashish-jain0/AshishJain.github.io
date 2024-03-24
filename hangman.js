@@ -14,42 +14,56 @@ const categories = {
     "Fantasy 🦄": ['unicorn', 'dragon', 'wizard', 'fairy', 'elf']
 };
 
-let chosenCategory;
-let chosenWord;
+let chosenCategory = null;
+let chosenWord = null;
 let guessedLetters = [];
 let hangmanWord = '';
-let totalLives = 6;
+let triesLeft = 6;
 let score = 0;
 
 function initializeHangman() {
-    // Select a random category
-    chosenCategory = getRandomCategory();
+    showCategorySelection();
+}
 
-    // Select a random word from the chosen category
-    chosenWord = getRandomWord(chosenCategory);
+function showCategorySelection() {
+    const categorySelectionDiv = document.createElement('div');
+    categorySelectionDiv.id = 'category-selection';
+    categorySelectionDiv.innerHTML = '<h2>Select a Category:</h2>';
+    
+    for (const category in categories) {
+        const categoryButton = document.createElement('button');
+        categoryButton.textContent = category;
+        categoryButton.addEventListener('click', function() {
+            chosenCategory = category;
+            chosenWord = categories[chosenCategory][Math.floor(Math.random() * categories[chosenCategory].length)];
+            document.getElementById('category-selection').remove();
+            startGame();
+        });
+        categorySelectionDiv.appendChild(categoryButton);
+    }
+    
+    document.getElementById('hangman-container').appendChild(categorySelectionDiv);
+}
 
-    // Display category, total lives, and score
-    document.getElementById('category').textContent = `Category: ${chosenCategory}`;
-    document.getElementById('total-lives').textContent = `Total Lives: ${totalLives}`;
-    document.getElementById('score').textContent = `Score: ${score}`;
-
-    // Initialize hangman word with underscores
+function startGame() {
+    document.getElementById('hangman-container').innerHTML = ''; // Clear category selection
+    document.getElementById('hangman-container').innerHTML = `
+        <div id="category">Category: ${chosenCategory}</div>
+        <div id="hangman-word"></div>
+        <div id="hangman-image">
+            <img src="hangman0.png" alt="Hangman" id="hangman-img">
+        </div>
+        <div id="tries-left">Tries Left: ${triesLeft}</div>
+        <div id="score">Score: ${score}</div>
+        <div id="hangman-buttons"></div>
+        <div id="hangman-status"></div>
+    `;
+    
     for (let i = 0; i < chosenWord.length; i++) {
         hangmanWord += '_';
     }
     document.getElementById('hangman-word').textContent = hangmanWord;
-
-    // Render alphabet buttons
     renderButtons();
-}
-
-function getRandomCategory() {
-    const categoriesArray = Object.keys(categories);
-    return categoriesArray[Math.floor(Math.random() * categoriesArray.length)];
-}
-
-function getRandomWord(category) {
-    return categories[category][Math.floor(Math.random() * categories[category].length)];
 }
 
 function renderButtons() {
@@ -70,7 +84,7 @@ function handleGuess(letter) {
     if (!guessedLetters.includes(letter)) {
         guessedLetters.push(letter);
         if (!chosenWord.includes(letter)) {
-            totalLives--;
+            triesLeft--;
             updateHangmanImage();
         }
         updateHangmanWord();
@@ -93,16 +107,16 @@ function updateHangmanWord() {
 }
 
 function updateHangmanImage() {
-    document.getElementById('hangman-img').src = `hangman${totalLives}.png`;
-    document.getElementById('total-lives').textContent = `Total Lives: ${totalLives}`;
+    document.getElementById('hangman-img').src = `hangman${6 - triesLeft}.png`;
+    document.getElementById('tries-left').textContent = `Tries Left: ${triesLeft}`;
 }
 
 function checkGameStatus() {
     if (hangmanWord === chosenWord) {
-        score++;
         document.getElementById('hangman-status').textContent = 'You won!';
+        score += 10;
         document.getElementById('score').textContent = `Score: ${score}`;
-    } else if (totalLives === 0) {
+    } else if (triesLeft === 0) {
         document.getElementById('hangman-status').textContent = 'You lost!';
     }
 }
