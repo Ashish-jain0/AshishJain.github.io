@@ -53,7 +53,7 @@ function showCategorySelection() {
             const index = Math.floor(Math.random() * categories[chosenCategory].length);
             chosenWord = categories[chosenCategory][index];
             chosenClue = clues[chosenCategory][index];
-            document.getElementById('category-selection').remove();
+            document.getElementById('hangman-container').innerHTML = '';
             startGame();
         });
         categorySelectionDiv.appendChild(categoryButton);
@@ -63,7 +63,6 @@ function showCategorySelection() {
 }
 
 function startGame() {
-    document.getElementById('hangman-container').innerHTML = ''; // Clear category selection
     document.getElementById('hangman-container').innerHTML = `
         <div id="category">Category: ${chosenCategory}</div>
         <div id="clue">Clue: ${chosenClue}</div>
@@ -135,17 +134,11 @@ function checkGameStatus() {
         score += 10;
         document.getElementById('score').textContent = `Score: ${score}`;
         setTimeout(() => {
-            selectNextCategory(); // Proceed to the next level after a delay
+            showCategorySelection();
         }, 2000);
     } else if (triesLeft === 0) {
         document.getElementById('hangman-status').textContent = 'You lost!';
     }
-}
-
-function selectNextCategory() {
-    guessedLetters = [];
-    triesLeft = 6;
-    showCategorySelection();
 }
 
 initializeHangman();
