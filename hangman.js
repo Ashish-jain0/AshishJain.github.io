@@ -16,17 +16,25 @@ const categories = {
 
 const clues = {
     const clues = {
-    "Colors 🎨": ['The color of blood', 'The color of the ocean', 'The color of grass'],
-    "Shapes ⬜️": ['Has four equal sides', 'A round object', 'Has three sides'],
-    "Movies 🎥": ['Movie about blue people', 'Movie about a ship sinking', 'Movie about dreams'],
-    "Superheroes 🦸": ['Can fly and wears a cape', 'Known as the Dark Knight', 'Shoots webs'],
-    "Countries 🏳️": ['Famous for the Statue of Liberty', 'The most populous country in the world', 'Known for the Taj Mahal'],
-    "Naruto 🌀": ['Main character in orange jumpsuit', 'Member of the Uchiha clan', 'Pink-haired ninja'],
-    "Flowers 🌼": ['Often given on Valentine\'s Day', 'Fragrant white flower', 'A symbol of purity'],
-    "Disney 🧜‍♀️": ['Iconic mouse character', 'His girlfriend wears a bow', 'Famous duck character'],
-    "HarryPotter 🧙": ['The Boy Who Lived', 'Known for his lightning-shaped scar', 'Headmaster of Hogwarts'],
-    "Music 🎸": ['Commonly associated with rock music', 'Played with 88 keys', 'Often used in orchestras'],
-    "Fantasy 🦄": ['A horse with a single horn', 'Often breathes fire', 'Often depicted with wings']
+   Certainly! Below are some clues for each category:
+
+```javascript
+const clues = {
+    "Colors 🎨": ['The color of blood', 'The color of the ocean', 'The color of grass', 'The color of sunshine', 'A fruit with this color is often associated with happiness', 'A combination of red and yellow', 'The color of eggplant', 'A common color for bears', 'The absence of color', 'The combination of all colors'],
+    "Shapes ⬜️": ['Has four equal sides', 'Has no corners', 'Has three sides', 'Opposite sides are equal and parallel', 'Has six sides', 'Has five sides', 'Has eight sides', 'A stretched out circle', 'A precious stone shape', 'A common symbol for excellence'],
+    "Movies 🎥": ['A movie set in a futuristic world', 'A tragic love story set on a sinking ship', 'A mind-bending film about dreams within dreams', 'A thriller about a giant shark', 'A space opera franchise', 'A film about resurrected dinosaurs', 'A dystopian action film', 'An animated tale of two sisters with magical powers', 'A space exploration adventure', 'A superhero vigilante from Gotham City'],
+    "Superheroes 🦸": ['A hero from Krypton', 'A billionaire with a bat-themed alter ego', 'A web-slinging hero from New York City', 'An Amazonian warrior princess', 'The god of thunder', 'A patriotic soldier enhanced with a super-soldier serum', 'A genius inventor with a suit of armor', 'A large green rage monster', 'The fastest man alive', 'A skilled spy with exceptional combat abilities'],
+    "Countries 🏳️": ['Known for its Statue of Liberty', 'The most populous country in the world', 'The largest democracy', 'The largest country by land area', 'Known for the Amazon rainforest', 'Famous for maple syrup and hockey', 'The Land Down Under', 'Known for engineering and efficiency', 'The Land of the Rising Sun', 'Famous for its cuisine and art'],
+    "Naruto 🌀": ['A ninja with a dream of becoming Hokage', 'His rival and best friend', 'A skilled medic-nin', 'The sensei of Team 7', 'A shy and caring ninja', 'A former jinchuriki of the One-Tail', 'A prodigious Uchiha with tragic past', 'A legendary Uchiha who seeks power', 'A masked man with a mysterious agenda', 'The Fifth Hokage and legendary Sannin'],
+    "Flowers 🌼": ['A symbol of love', 'A fragrant white flower', 'A common wildflower', 'A flower that turns to face the sun', 'A popular spring flower', 'Known for its exotic beauty', 'A symbol of spring and renewal', 'A cluster of small flowers', 'A popular flower for Mother’s Day', 'A delicate and fragrant flower'],
+    "Disney 🧜‍♀️": ['A cheerful cartoon mouse', 'His sweetheart and frequent companion', 'A clumsy anthropomorphic dog', 'A curious mermaid princess', 'A kind-hearted girl with a fairy godmother', 'A humble book-loving girl turned princess', 'A courageous warrior who disguises herself as a man', 'A brave Polynesian girl on a quest', 'A story of sisterly love and magic', 'A tale of two sisters with magical powers'],
+    "HarryPotter 🧙": ['The Boy Who Lived', 'A brilliant and resourceful witch', 'Harry’s loyal best friend', 'The wise headmaster of Hogwarts', 'A complex character with a troubled past', 'The Dark Lord', 'A gentle giant with a soft spot for magical creatures', 'Harry’s fiery red-headed friend', 'A courageous friend who grows into a hero', 'A cunning and ambitious Slytherin'],
+    "Music 🎸": ['A string instrument often associated with rock music', 'A versatile instrument used in various genres', 'A bowed string instrument with a rich sound', 'A percussion instrument with various-sized drums', 'A brass instrument with a bold sound', 'A wind instrument with a soulful tone', 'A woodwind instrument with a bright sound', 'A woodwind instrument with a smooth tone', 'A string instrument with a deep and resonant sound', 'A small wind instrument often used in blues music'],
+    "Fantasy 🦄": ['A mythical horse with a horn', 'A legendary fire-breathing creature', 'A magic practitioner with a wand', 'A tiny magical being with wings', 'A creature from folklore with pointed ears', 'A half-human, half-fish creature', 'A mythical creature with the body of a horse and the torso of a human', 'A mythical bird reborn from ashes', 'A mischievous creature often depicted as small and ugly', 'A person with magical abilities, typically female']
+};
+```
+
+These clues should give players a good starting point for guessing the words in each category during the hangman game.
 
 };
 
