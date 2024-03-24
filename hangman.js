@@ -1,31 +1,33 @@
 // hangman.js
 
 const categories = {
-    "Colors 🎨": ['red', 'blue', 'green', 'yellow', 'orange', 'purple'],
-    "Shapes ⬜️": ['square', 'circle', 'triangle', 'rectangle', 'hexagon'],
-    "Movies 🎥": ['avatar', 'titanic', 'inception', 'jaws', 'starwars'],
-    "Superheroes 🦸": ['superman', 'batman', 'spiderman', 'wonderwoman', 'thor'],
-    "Countries 🏳️": ['usa', 'china', 'india', 'russia', 'brazil'],
-    "Naruto 🌀": ['naruto', 'sasuke', 'sakura', 'kakashi', 'hinata'],
-    "Flowers 🌼": ['rose', 'lily', 'daisy', 'sunflower', 'tulip'],
-    "Disney 🧜‍♀️": ['mickey', 'minnie', 'donald', 'goofy', 'ariel'],
-    "HarryPotter 🧙": ['harry', 'hermione', 'ron', 'dumbledore', 'snape'],
-    "Music 🎸": ['guitar', 'piano', 'violin', 'drums', 'trumpet'],
-    "Fantasy 🦄": ['unicorn', 'dragon', 'wizard', 'fairy', 'elf']
+    "Colors 🎨": ['red', 'blue', 'green', 'yellow', 'orange', 'purple', 'pink', 'brown', 'black', 'white'],
+    "Shapes ⬜️": ['square', 'circle', 'triangle', 'rectangle', 'hexagon', 'pentagon', 'octagon', 'oval', 'diamond', 'star'],
+    "Movies 🎥": ['avatar', 'titanic', 'inception', 'jaws', 'starwars', 'jurassicpark', 'matrix', 'frozen', 'interstellar', 'batman'],
+    "Superheroes 🦸": ['superman', 'batman', 'spiderman', 'wonderwoman', 'thor', 'captainamerica', 'ironman', 'hulk', 'flash', 'blackwidow'],
+    "Countries 🏳️": ['usa', 'china', 'india', 'russia', 'brazil', 'canada', 'australia', 'germany', 'japan', 'france'],
+    "Naruto 🌀": ['naruto', 'sasuke', 'sakura', 'kakashi', 'hinata', 'gaara', 'itachi', 'madara', 'obito', 'tsunade'],
+    "Flowers 🌼": ['rose', 'lily', 'daisy', 'sunflower', 'tulip', 'orchid', 'daffodil', 'hydrangea', 'carnation', 'peonies'],
+    "Disney 🧜‍♀️": ['mickey', 'minnie', 'donald', 'goofy', 'ariel', 'cinderella', 'belle', 'mulan', 'moana', 'frozen'],
+    "HarryPotter 🧙": ['harry', 'hermione', 'ron', 'dumbledore', 'snape', 'voldemort', 'hagrid', 'ginny', 'neville', 'malfoy'],
+    "Music 🎸": ['guitar', 'piano', 'violin', 'drums', 'trumpet', 'saxophone', 'flute', 'clarinet', 'cello', 'harmonica'],
+    "Fantasy 🦄": ['unicorn', 'dragon', 'wizard', 'fairy', 'elf', 'mermaid', 'centaur', 'phoenix', 'goblin', 'witch']
 };
 
 const clues = {
-    "Colors 🎨": ['A primary color', 'The sky is this color', 'A type of fruit'],
-    "Shapes ⬜️": ['Has four equal sides', 'Round object', 'Three-sided figure'],
-    "Movies 🎥": ['Blue people movie', 'Ship disaster movie', 'Dream within a dream movie'],
-    "Superheroes 🦸": ['Flies and wears a cape', 'Dark knight', 'Webslinger'],
-    "Countries 🏳️": ['Star-spangled banner', 'Most populous country', 'Land of spices'],
-    "Naruto 🌀": ['Orange jumpsuit ninja', 'Uchiha clan', 'Cherry blossom girl'],
-    "Flowers 🌼": ['A symbol of love', 'Often given on Mother\'s Day', 'A type of plant'],
-    "Disney 🧜‍♀️": ['Mouse character', 'Minnie\'s boyfriend', 'Duck character'],
-    "HarryPotter 🧙": ['The boy who lived', 'Brightest witch of her age', 'You-know-who'],
-    "Music 🎸": ['Strings instrument', 'Keys instrument', 'Played with a bow'],
-    "Fantasy 🦄": ['Magical horse', 'Fire-breathing creature', 'A person with magical abilities']
+    const clues = {
+    "Colors 🎨": ['The color of blood', 'The color of the ocean', 'The color of grass'],
+    "Shapes ⬜️": ['Has four equal sides', 'A round object', 'Has three sides'],
+    "Movies 🎥": ['Movie about blue people', 'Movie about a ship sinking', 'Movie about dreams'],
+    "Superheroes 🦸": ['Can fly and wears a cape', 'Known as the Dark Knight', 'Shoots webs'],
+    "Countries 🏳️": ['Famous for the Statue of Liberty', 'The most populous country in the world', 'Known for the Taj Mahal'],
+    "Naruto 🌀": ['Main character in orange jumpsuit', 'Member of the Uchiha clan', 'Pink-haired ninja'],
+    "Flowers 🌼": ['Often given on Valentine\'s Day', 'Fragrant white flower', 'A symbol of purity'],
+    "Disney 🧜‍♀️": ['Iconic mouse character', 'His girlfriend wears a bow', 'Famous duck character'],
+    "HarryPotter 🧙": ['The Boy Who Lived', 'Known for his lightning-shaped scar', 'Headmaster of Hogwarts'],
+    "Music 🎸": ['Commonly associated with rock music', 'Played with 88 keys', 'Often used in orchestras'],
+    "Fantasy 🦄": ['A horse with a single horn', 'Often breathes fire', 'Often depicted with wings']
+
 };
 
 let chosenCategory = null;
