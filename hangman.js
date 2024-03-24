@@ -1,12 +1,30 @@
 // hangman.js
 
-const words = ['apple', 'banana', 'orange', 'strawberry', 'kiwi'];
-let chosenWord = words[Math.floor(Math.random() * words.length)];
+const categories = {
+    "Colors 🎨": ['red', 'blue', 'green', 'yellow', 'orange', 'purple'],
+    "Shapes ⬜️": ['square', 'circle', 'triangle', 'rectangle', 'hexagon'],
+    "Movies 🎥": ['avatar', 'titanic', 'inception', 'jaws', 'starwars'],
+    "Superheroes 🦸": ['superman', 'batman', 'spiderman', 'wonderwoman', 'thor'],
+    "Countries 🏳️": ['usa', 'china', 'india', 'russia', 'brazil'],
+    "Naruto 🌀": ['naruto', 'sasuke', 'sakura', 'kakashi', 'hinata'],
+    "Flowers 🌼": ['rose', 'lily', 'daisy', 'sunflower', 'tulip'],
+    "Disney 🧜‍♀️": ['mickey', 'minnie', 'donald', 'goofy', 'ariel'],
+    "HarryPotter 🧙": ['harry', 'hermione', 'ron', 'dumbledore', 'snape'],
+    "Music 🎸": ['guitar', 'piano', 'violin', 'drums', 'trumpet'],
+    "Fantasy 🦄": ['unicorn', 'dragon', 'wizard', 'fairy', 'elf']
+};
+
+let chosenCategory;
+let chosenWord;
 let guessedLetters = [];
 let hangmanWord = '';
 let triesLeft = 6;
 
 function initializeHangman() {
+    chosenCategory = Object.keys(categories)[Math.floor(Math.random() * Object.keys(categories).length)];
+    chosenWord = categories[chosenCategory][Math.floor(Math.random() * categories[chosenCategory].length)];
+    document.getElementById('category').textContent = `Category: ${chosenCategory}`;
+    document.getElementById('tries-left').textContent = `Tries Left: ${triesLeft}`;
     for (let i = 0; i < chosenWord.length; i++) {
         hangmanWord += '_';
     }
@@ -56,6 +74,7 @@ function updateHangmanWord() {
 
 function updateHangmanImage() {
     document.getElementById('hangman-img').src = `hangman${6 - triesLeft}.png`;
+    document.getElementById('tries-left').textContent = `Tries Left: ${triesLeft}`;
 }
 
 function checkGameStatus() {
