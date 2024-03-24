@@ -53,7 +53,7 @@ function showCategorySelection() {
             const index = Math.floor(Math.random() * categories[chosenCategory].length);
             chosenWord = categories[chosenCategory][index];
             chosenClue = clues[chosenCategory][index];
-            document.getElementById('hangman-container').innerHTML = '';
+            document.getElementById('category-selection').remove();
             startGame();
         });
         categorySelectionDiv.appendChild(categoryButton);
@@ -63,6 +63,7 @@ function showCategorySelection() {
 }
 
 function startGame() {
+    document.getElementById('hangman-container').innerHTML = '';
     document.getElementById('hangman-container').innerHTML = `
         <div id="category">Category: ${chosenCategory}</div>
         <div id="clue">Clue: ${chosenClue}</div>
