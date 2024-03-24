@@ -64,7 +64,8 @@ function showCategorySelection() {
 
 function startGame() {
     document.getElementById('hangman-container').innerHTML = '';
-    document.getElementById('hangman-container').innerHTML = `
+    const gameContainer = document.createElement('div');
+    gameContainer.innerHTML = `
         <div id="category">Category: ${chosenCategory}</div>
         <div id="clue">Clue: ${chosenClue}</div>
         <div id="hangman-word"></div>
@@ -76,6 +77,8 @@ function startGame() {
         <div id="hangman-buttons"></div>
         <div id="hangman-status"></div>
     `;
+    
+    document.getElementById('hangman-container').appendChild(gameContainer);
     
     for (let i = 0; i < chosenWord.length; i++) {
         hangmanWord += '_';
