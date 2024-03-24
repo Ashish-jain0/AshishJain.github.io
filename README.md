@@ -6,17 +6,17 @@
     <title>Open Talk - Learn English</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f7f7f7; /* Light gray background */
+            background-color: #f2f2f2;
+            color: #333; /* Font color */
         }
         header {
             background-color: #333;
             color: #fff;
             padding: 20px;
             text-align: center;
-            font-size: 24px; /* Larger font size */
         }
         #logo {
             max-width: 200px;
@@ -28,48 +28,38 @@
             margin: 20px auto;
             padding: 20px;
             background-color: #fff;
-            border-radius: 10px; /* Rounded corners */
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Soft shadow */
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        h1 {
+        h1, h2 {
             text-align: center;
-            color: #333; /* Dark text color */
-            font-size: 32px; /* Larger font size */
         }
         p {
             text-align: justify;
-            font-size: 18px; /* Larger font size */
-            line-height: 1.6; /* Increased line height for better readability */
         }
-        ul {
-            list-style-type: none; /* Remove bullet points */
-            padding: 0;
+        /* Styles for the game */
+        .game-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
         }
-        li {
-            margin-bottom: 10px;
-        }
-        a {
-            color: #007bff; /* Blue link color */
-            text-decoration: none;
-            font-weight: bold; /* Bold font weight */
-        }
-        a:hover {
-            text-decoration: underline; /* Underline on hover */
-        }
-        .game {
+        .game-box {
             padding: 20px;
-            background-color: #f9f9f9;
+            border: 2px solid #333;
             border-radius: 5px;
-            margin-bottom: 20px;
+            background-color: #f9f9f9;
         }
-        .game h2 {
-            margin-top: 0;
-            color: #333;
+        .result {
+            font-weight: bold;
+            margin-top: 10px;
+            text-align: center;
         }
     </style>
 </head>
 <body>
     <header>
+        <img src="https://drive.google.com/uc?export=view&id=1vmi3QCp2s8DkIdkA8MOH24vRS4craDm9" alt="Open Talk Logo" id="logo">
         <h1>Welcome to Open Talk</h1>
     </header>
     <div class="container">
@@ -84,22 +74,40 @@
             <li>Live conversation practice sessions</li>
             <li>Grammar and vocabulary exercises</li>
         </ul>
-        <h2>Interactive English Learning Games</h2>
-        <div class="game">
-            <h2>Word Scramble</h2>
-            <p>Unscramble the letters to form English words.</p>
-            <!-- Add your game content here -->
-        </div>
-        <div class="game">
-            <h2>Matching Game</h2>
-            <p>Match the words with their meanings.</p>
-            <!-- Add your game content here -->
+        <div class="game-container">
+            <div class="game-box">
+                <h2>Rock Paper Scissors</h2>
+                <button onclick="play('rock')">Rock</button>
+                <button onclick="play('paper')">Paper</button>
+                <button onclick="play('scissors')">Scissors</button>
+                <p class="result" id="result"></p>
+            </div>
         </div>
         <h2>Contact Us</h2>
         <p>
-            Email: <a href="mailto:officialopentalk@gmail.com">officialopentalk@gmail.com</a><br>
+            Email: officialopentalk@gmail.com<br>
             Telegram Community: <a href="https://t.me/+Cbv_rEEYo482N2Y1">Join Our Telegram Community</a>
         </p>
     </div>
+
+    <script>
+        function play(playerChoice) {
+            var choices = ['rock', 'paper', 'scissors'];
+            var computerChoice = choices[Math.floor(Math.random() * choices.length)];
+
+            var resultElement = document.getElementById('result');
+            if (playerChoice === computerChoice) {
+                resultElement.textContent = "It's a tie!";
+            } else if (
+                (playerChoice === 'rock' && computerChoice === 'scissors') ||
+                (playerChoice === 'paper' && computerChoice === 'rock') ||
+                (playerChoice === 'scissors' && computerChoice === 'paper')
+            ) {
+                resultElement.textContent = "You win!";
+            } else {
+                resultElement.textContent = "You lose!";
+            }
+        }
+    </script>
 </body>
 </html>
