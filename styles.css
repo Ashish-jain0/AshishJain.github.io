@@ -1,11 +1,10 @@
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-image: url('company_logo.gif'); /* Set background image */
+    background-image: url('company_logo.gif');
     background-size: cover;
     background-repeat: no-repeat;
-    background-attachment: fixed;
     color: #ffffff;
 }
 
@@ -15,19 +14,20 @@ body {
 }
 
 header {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.7);
     text-align: center;
     padding: 20px 0;
 }
 
 header img {
-    width: 150px; /* Adjust logo size */
+    width: 200px; /* Adjust logo size */
     height: auto;
 }
 
 h1 {
     font-size: 36px;
     margin-top: 20px;
+    color: #ffffff;
 }
 
 main {
@@ -41,15 +41,16 @@ section#games {
 
 .game {
     width: 30%;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.9);
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 20px;
     margin-bottom: 20px;
+    color: #333333;
 }
 
 footer {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.7);
     text-align: center;
     padding: 10px 0;
 }
