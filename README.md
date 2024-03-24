@@ -6,18 +6,19 @@
     <title>Open Talk - Learn English</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #f9f7f7; /* Light gray background color */
             background-image: url('https://drive.google.com/uc?export=view&id=1vmi3QCp2s8DkIdkA8MOH24vRS4craDm9');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            color: #333; /* Text color */
+            color: #333; /* Dark gray text color */
         }
         header {
-            background-color: rgba(0, 0, 0, 0.5);
-            color: #fff;
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background for header */
+            color: #fff; /* White text color */
             padding: 20px;
             text-align: center;
         }
@@ -30,44 +31,38 @@
             max-width: 800px;
             margin: 20px auto;
             padding: 20px;
-            background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background for content */
+            border-radius: 10px; /* Rounded corners for content */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Shadow effect */
         }
         h1 {
             text-align: center;
-            color: #fff; /* Header text color */
-            font-size: 32px;
-            margin-bottom: 20px;
+            font-size: 36px; /* Larger font size for heading */
+            margin-bottom: 20px; /* Add some space below heading */
         }
         p {
             text-align: justify;
-            font-size: 18px;
-            line-height: 1.6;
+            font-size: 16px; /* Normal font size for paragraph */
+            line-height: 1.6; /* Increased line height for better readability */
         }
         ul {
-            margin-top: 10px;
+            list-style-type: none; /* Remove bullet points from list */
+            padding: 0;
         }
         li {
-            font-size: 18px;
-            line-height: 1.6;
+            margin-bottom: 10px; /* Add space between list items */
         }
-        .contact-info {
-            font-size: 18px;
-            margin-top: 20px;
+        a {
+            color: #007bff; /* Blue color for links */
+            text-decoration: none; /* Remove underline from links */
         }
-        .contact-info a {
-            color: #007bff; /* Link color */
-            text-decoration: none;
-        }
-        .contact-info a:hover {
-            text-decoration: underline;
+        a:hover {
+            text-decoration: underline; /* Underline links on hover */
         }
     </style>
 </head>
 <body>
     <header>
-        <img src="https://drive.google.com/uc?export=view&id=1vmi3QCp2s8DkIdkA8MOH24vRS4craDm9" alt="Open Talk Logo" id="logo">
         <h1>Welcome to Open Talk</h1>
     </header>
     <div class="container">
@@ -83,9 +78,9 @@
             <li>Grammar and vocabulary exercises</li>
         </ul>
         <h2>Contact Us</h2>
-        <p class="contact-info">
+        <p>
             Email: <a href="mailto:officialopentalk@gmail.com">officialopentalk@gmail.com</a><br>
-             <a href="https://t.me/+Cbv_rEEYo482N2Y1">Join Our Telegram Community</a>
+            Telegram Community: <a href="https://t.me/+Cbv_rEEYo482N2Y1">Join Our Telegram Community</a>
         </p>
     </div>
 </body>
