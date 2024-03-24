@@ -7,14 +7,18 @@
     <link rel="stylesheet" href="hangman.css">
 </head>
 <body>
-    <h1>Hangman</h1>
     <div id="hangman-container">
-        <div id="category">Category: </div>
+        <h1>Hangman</h1>
+        <div class="game-info">
+            <div class="info-item" id="category">Category: </div>
+            <div class="info-item" id="clue">Clue: </div>
+            <div class="info-item" id="tries-left">Tries Left: </div>
+            <div class="info-item" id="score">Score: </div>
+        </div>
         <div id="hangman-word"></div>
         <div id="hangman-image">
             <img src="hangman0.png" alt="Hangman" id="hangman-img">
         </div>
-        <div id="tries-left">Tries Left: </div>
         <div id="hangman-buttons"></div>
         <div id="hangman-status"></div>
     </div>
