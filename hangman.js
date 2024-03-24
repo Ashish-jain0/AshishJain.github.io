@@ -18,18 +18,38 @@ let chosenCategory;
 let chosenWord;
 let guessedLetters = [];
 let hangmanWord = '';
-let triesLeft = 6;
+let totalLives = 6;
+let score = 0;
 
 function initializeHangman() {
-    chosenCategory = Object.keys(categories)[Math.floor(Math.random() * Object.keys(categories).length)];
-    chosenWord = categories[chosenCategory][Math.floor(Math.random() * categories[chosenCategory].length)];
+    // Select a random category
+    chosenCategory = getRandomCategory();
+
+    // Select a random word from the chosen category
+    chosenWord = getRandomWord(chosenCategory);
+
+    // Display category, total lives, and score
     document.getElementById('category').textContent = `Category: ${chosenCategory}`;
-    document.getElementById('tries-left').textContent = `Tries Left: ${triesLeft}`;
+    document.getElementById('total-lives').textContent = `Total Lives: ${totalLives}`;
+    document.getElementById('score').textContent = `Score: ${score}`;
+
+    // Initialize hangman word with underscores
     for (let i = 0; i < chosenWord.length; i++) {
         hangmanWord += '_';
     }
     document.getElementById('hangman-word').textContent = hangmanWord;
+
+    // Render alphabet buttons
     renderButtons();
+}
+
+function getRandomCategory() {
+    const categoriesArray = Object.keys(categories);
+    return categoriesArray[Math.floor(Math.random() * categoriesArray.length)];
+}
+
+function getRandomWord(category) {
+    return categories[category][Math.floor(Math.random() * categories[category].length)];
 }
 
 function renderButtons() {
@@ -50,7 +70,7 @@ function handleGuess(letter) {
     if (!guessedLetters.includes(letter)) {
         guessedLetters.push(letter);
         if (!chosenWord.includes(letter)) {
-            triesLeft--;
+            totalLives--;
             updateHangmanImage();
         }
         updateHangmanWord();
@@ -73,14 +93,16 @@ function updateHangmanWord() {
 }
 
 function updateHangmanImage() {
-    document.getElementById('hangman-img').src = `hangman${6 - triesLeft}.png`;
-    document.getElementById('tries-left').textContent = `Tries Left: ${triesLeft}`;
+    document.getElementById('hangman-img').src = `hangman${totalLives}.png`;
+    document.getElementById('total-lives').textContent = `Total Lives: ${totalLives}`;
 }
 
 function checkGameStatus() {
     if (hangmanWord === chosenWord) {
+        score++;
         document.getElementById('hangman-status').textContent = 'You won!';
-    } else if (triesLeft === 0) {
+        document.getElementById('score').textContent = `Score: ${score}`;
+    } else if (totalLives === 0) {
         document.getElementById('hangman-status').textContent = 'You lost!';
     }
 }
