@@ -1,17 +1,25 @@
 // hangman.js
 
 const categories = {
-    "Colors 🎨": ['red', 'blue', 'green', 'yellow', 'orange', 'purple'],
-    "Shapes ⬜️": ['square', 'circle', 'triangle', 'rectangle', 'hexagon'],
-    "Movies 🎥": ['avatar', 'titanic', 'inception', 'jaws', 'starwars'],
-    "Superheroes 🦸": ['superman', 'batman', 'spiderman', 'wonderwoman', 'thor'],
-    "Countries 🏳️": ['usa', 'china', 'india', 'russia', 'brazil'],
-    "Naruto 🌀": ['naruto', 'sasuke', 'sakura', 'kakashi', 'hinata'],
-    "Flowers 🌼": ['rose', 'lily', 'daisy', 'sunflower', 'tulip'],
-    "Disney 🧜‍♀️": ['mickey', 'minnie', 'donald', 'goofy', 'ariel'],
-    "HarryPotter 🧙": ['harry', 'hermione', 'ron', 'dumbledore', 'snape'],
-    "Music 🎸": ['guitar', 'piano', 'violin', 'drums', 'trumpet'],
-    "Fantasy 🦄": ['unicorn', 'dragon', 'wizard', 'fairy', 'elf']
+    "Colors 🎨": [
+        { word: 'red', clue: 'The color of blood' },
+        { word: 'blue', clue: 'The color of the sky' },
+        { word: 'green', clue: 'The color of grass' },
+        // Add more words and clues
+    ],
+    "Shapes ⬜️": [
+        { word: 'square', clue: 'Has four equal sides' },
+        { word: 'circle', clue: 'Has no corners' },
+        { word: 'triangle', clue: 'Has three sides' },
+        // Add more words and clues
+    ],
+    "Movies 🎥": [
+        { word: 'avatar', clue: 'Blue creatures on Pandora' },
+        { word: 'titanic', clue: 'Shipwrecked love story' },
+        { word: 'inception', clue: 'Dream within a dream' },
+        // Add more words and clues
+    ],
+    // Add more categories
 };
 
 let chosenCategory = null;
@@ -35,9 +43,12 @@ function showCategorySelection() {
         categoryButton.textContent = category;
         categoryButton.addEventListener('click', function() {
             chosenCategory = category;
-            chosenWord = categories[chosenCategory][Math.floor(Math.random() * categories[chosenCategory].length)];
+            const categoryWords = categories[chosenCategory];
+            const randomIndex = Math.floor(Math.random() * categoryWords.length);
+            chosenWord = categoryWords[randomIndex].word;
+            const clue = categoryWords[randomIndex].clue;
             document.getElementById('category-selection').remove();
-            startGame();
+            startGame(clue);
         });
         categorySelectionDiv.appendChild(categoryButton);
     }
@@ -45,10 +56,11 @@ function showCategorySelection() {
     document.getElementById('hangman-container').appendChild(categorySelectionDiv);
 }
 
-function startGame() {
+function startGame(clue) {
     document.getElementById('hangman-container').innerHTML = ''; // Clear category selection
     document.getElementById('hangman-container').innerHTML = `
         <div id="category">Category: ${chosenCategory}</div>
+        <div id="clue">Clue: ${clue}</div>
         <div id="hangman-word"></div>
         <div id="hangman-image">
             <img src="hangman0.png" alt="Hangman" id="hangman-img">
