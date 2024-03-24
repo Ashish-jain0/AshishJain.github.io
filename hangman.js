@@ -70,7 +70,7 @@ function startGame() {
         <div id="clue">Clue: ${chosenClue}</div>
         <div id="hangman-word"></div>
         <div id="hangman-image">
-            <img src="hangman0.png" alt="Hangman" id="hangman-img">
+            <img src="hangman0.jpg" alt="Hangman" id="hangman-img">
         </div>
         <div id="tries-left">Tries Left: ${triesLeft}</div>
         <div id="score">Score: ${score}</div>
