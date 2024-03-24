@@ -6,21 +6,17 @@
     <title>Open Talk - Learn English</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f9f7f7; /* Light gray background color */
-            background-image: url('https://drive.google.com/uc?export=view&id=1vmi3QCp2s8DkIdkA8MOH24vRS4craDm9');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            color: #333; /* Dark gray text color */
+            background-color: #f7f7f7; /* Light gray background */
         }
         header {
-            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background for header */
-            color: #fff; /* White text color */
+            background-color: #333;
+            color: #fff;
             padding: 20px;
             text-align: center;
+            font-size: 24px; /* Larger font size */
         }
         #logo {
             max-width: 200px;
@@ -31,33 +27,44 @@
             max-width: 800px;
             margin: 20px auto;
             padding: 20px;
-            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background for content */
-            border-radius: 10px; /* Rounded corners for content */
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Shadow effect */
+            background-color: #fff;
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Soft shadow */
         }
         h1 {
             text-align: center;
-            font-size: 36px; /* Larger font size for heading */
-            margin-bottom: 20px; /* Add some space below heading */
+            color: #333; /* Dark text color */
+            font-size: 32px; /* Larger font size */
         }
         p {
             text-align: justify;
-            font-size: 16px; /* Normal font size for paragraph */
+            font-size: 18px; /* Larger font size */
             line-height: 1.6; /* Increased line height for better readability */
         }
         ul {
-            list-style-type: none; /* Remove bullet points from list */
+            list-style-type: none; /* Remove bullet points */
             padding: 0;
         }
         li {
-            margin-bottom: 10px; /* Add space between list items */
+            margin-bottom: 10px;
         }
         a {
-            color: #007bff; /* Blue color for links */
-            text-decoration: none; /* Remove underline from links */
+            color: #007bff; /* Blue link color */
+            text-decoration: none;
+            font-weight: bold; /* Bold font weight */
         }
         a:hover {
-            text-decoration: underline; /* Underline links on hover */
+            text-decoration: underline; /* Underline on hover */
+        }
+        .game {
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .game h2 {
+            margin-top: 0;
+            color: #333;
         }
     </style>
 </head>
@@ -77,6 +84,17 @@
             <li>Live conversation practice sessions</li>
             <li>Grammar and vocabulary exercises</li>
         </ul>
+        <h2>Interactive English Learning Games</h2>
+        <div class="game">
+            <h2>Word Scramble</h2>
+            <p>Unscramble the letters to form English words.</p>
+            <!-- Add your game content here -->
+        </div>
+        <div class="game">
+            <h2>Matching Game</h2>
+            <p>Match the words with their meanings.</p>
+            <!-- Add your game content here -->
+        </div>
         <h2>Contact Us</h2>
         <p>
             Email: <a href="mailto:officialopentalk@gmail.com">officialopentalk@gmail.com</a><br>
