@@ -63,7 +63,7 @@ function startGame(clue) {
         <div id="clue">Clue: ${clue}</div>
         <div id="hangman-word"></div>
         <div id="hangman-image">
-            <img src="hangman0.png" alt="Hangman" id="hangman-img">
+            <img src="hangman0.jpeg" alt="Hangman" id="hangman-img">
         </div>
         <div id="tries-left">Tries Left: ${triesLeft}</div>
         <div id="score">Score: ${score}</div>
@@ -119,7 +119,7 @@ function updateHangmanWord() {
 }
 
 function updateHangmanImage() {
-    document.getElementById('hangman-img').src = `hangman${6 - triesLeft}.png`;
+    document.getElementById('hangman-img').src = `hangman${6 - triesLeft}.jpeg`;
     document.getElementById('tries-left').textContent = `Tries Left: ${triesLeft}`;
 }
 
