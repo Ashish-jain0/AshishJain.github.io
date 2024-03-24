@@ -1,8 +1,12 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f0f0f0; /* Set background color */
+    background-image: url('company_logo.gif'); /* Set background image */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #ffffff;
 }
 
 .container {
@@ -11,15 +15,19 @@ body {
 }
 
 header {
-    background-color: #333;
-    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
     text-align: center;
     padding: 20px 0;
 }
 
 header img {
-    width: 100px; /* Adjust logo size */
+    width: 150px; /* Adjust logo size */
     height: auto;
+}
+
+h1 {
+    font-size: 36px;
+    margin-top: 20px;
 }
 
 main {
@@ -33,7 +41,7 @@ section#games {
 
 .game {
     width: 30%;
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.8);
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 20px;
@@ -41,8 +49,7 @@ section#games {
 }
 
 footer {
-    background-color: #333;
-    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
     text-align: center;
     padding: 10px 0;
 }
