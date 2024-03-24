@@ -55,14 +55,8 @@
             margin-bottom: 10px;
         }
 
-        #hangman-image img {
-            max-width: 100%;
+        #hangman-image {
             margin-top: 20px;
-        }
-
-        #tries-left, #score, #category, #clue {
-            margin-top: 10px;
-            font-size: 18px;
         }
 
         #hangman-status {
@@ -79,15 +73,30 @@
         <div id="clue" style="display: none;"></div>
         <div id="hangman-word"></div>
         <div id="hangman-image">
-            <img src="hangman.jpg" alt="Hangman" id="hangman-img">
+            <img src="hangman0.jpg" alt="Hangman" id="hangman-img">
         </div>
         <div id="tries-left" style="display: none;"></div>
         <div id="score" style="display: none;"></div>
-        <div id="hangman-buttons"></div>
+        <div id="hangman-buttons">
+            <button onclick="startGame('Colors 🎨')">Colors 🎨</button>
+            <button onclick="startGame('Shapes ⬜️')">Shapes ⬜️</button>
+            <button onclick="startGame('Movies 🎥')">Movies 🎥</button>
+            <button onclick="startGame('Superheroes 🦸')">Superheroes 🦸</button>
+            <button onclick="startGame('Countries 🏳️')">Countries 🏳️</button>
+            <button onclick="startGame('Naruto 🌀')">Naruto 🌀</button>
+            <button onclick="startGame('Flowers 🌼')">Flowers 🌼</button>
+            <button onclick="startGame('Disney 🧜‍♀️')">Disney 🧜‍♀️</button>
+            <button onclick="startGame('HarryPotter 🧙')">HarryPotter 🧙</button>
+            <button onclick="startGame('Music 🎸')">Music 🎸</button>
+            <button onclick="startGame('Fantasy 🦄')">Fantasy 🦄</button>
+        </div>
         <div id="hangman-status" style="display: none;"></div>
     </div>
     <script>
-        // JavaScript logic goes here
+        function startGame(category) {
+            console.log("Selected Category:", category);
+            // Write your game logic here
+        }
     </script>
 </body>
 </html>
