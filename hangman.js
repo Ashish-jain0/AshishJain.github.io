@@ -56,13 +56,7 @@ function renderHangman() {
     const hangmanImageDiv = document.createElement('div');
     hangmanImageDiv.id = 'hangman-image';
     hangmanImageDiv.innerHTML = `
-         ___
-        |   |
-        |   ${triesLeft < 6 ? 'O' : ''}
-        |  ${triesLeft < 4 ? '/' : ''}${triesLeft < 5 ? '|' : ''}${triesLeft < 3 ? '\\' : ''}
-        |  ${triesLeft < 2 ? '/' : ''} ${triesLeft < 1 ? '\\' : ''}
-        |
-        =========
+        <img src="hangman${6 - triesLeft}.jpg" alt="Hangman" id="hangman-img">
     `;
     document.getElementById('hangman-container').appendChild(hangmanImageDiv);
 }
@@ -87,6 +81,7 @@ function handleGuess(letter) {
         guessedLetters.push(letter);
         if (!chosenWord.includes(letter)) {
             triesLeft--;
+            updateHangmanImage();
         }
         updateHangmanWord();
         renderButtons();
@@ -105,6 +100,10 @@ function updateHangmanWord() {
     }
     hangmanWord = newHangmanWord;
     document.getElementById('hangman-word').textContent = hangmanWord;
+}
+
+function updateHangmanImage() {
+    document.getElementById('hangman-img').src = `hangman${6 - triesLeft}.jpg`;
 }
 
 function checkGameStatus() {
