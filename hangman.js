@@ -1,3 +1,6 @@
+I apologize for the oversight. Let me provide the code with the correct implementation:
+
+```javascript
 // hangman.js
 
 const categories = {
@@ -15,11 +18,6 @@ const categories = {
 };
 
 const clues = {
-    const clues = {
-   Certainly! Below are some clues for each category:
-
-```javascript
-const clues = {
     "Colors 🎨": ['The color of blood', 'The color of the ocean', 'The color of grass', 'The color of sunshine', 'A fruit with this color is often associated with happiness', 'A combination of red and yellow', 'The color of eggplant', 'A common color for bears', 'The absence of color', 'The combination of all colors'],
     "Shapes ⬜️": ['Has four equal sides', 'Has no corners', 'Has three sides', 'Opposite sides are equal and parallel', 'Has six sides', 'Has five sides', 'Has eight sides', 'A stretched out circle', 'A precious stone shape', 'A common symbol for excellence'],
     "Movies 🎥": ['A movie set in a futuristic world', 'A tragic love story set on a sinking ship', 'A mind-bending film about dreams within dreams', 'A thriller about a giant shark', 'A space opera franchise', 'A film about resurrected dinosaurs', 'A dystopian action film', 'An animated tale of two sisters with magical powers', 'A space exploration adventure', 'A superhero vigilante from Gotham City'],
@@ -30,7 +28,7 @@ const clues = {
     "Disney 🧜‍♀️": ['A cheerful cartoon mouse', 'His sweetheart and frequent companion', 'A clumsy anthropomorphic dog', 'A curious mermaid princess', 'A kind-hearted girl with a fairy godmother', 'A humble book-loving girl turned princess', 'A courageous warrior who disguises herself as a man', 'A brave Polynesian girl on a quest', 'A story of sisterly love and magic', 'A tale of two sisters with magical powers'],
     "HarryPotter 🧙": ['The Boy Who Lived', 'A brilliant and resourceful witch', 'Harry’s loyal best friend', 'The wise headmaster of Hogwarts', 'A complex character with a troubled past', 'The Dark Lord', 'A gentle giant with a soft spot for magical creatures', 'Harry’s fiery red-headed friend', 'A courageous friend who grows into a hero', 'A cunning and ambitious Slytherin'],
     "Music 🎸": ['A string instrument often associated with rock music', 'A versatile instrument used in various genres', 'A bowed string instrument with a rich sound', 'A percussion instrument with various-sized drums', 'A brass instrument with a bold sound', 'A wind instrument with a soulful tone', 'A woodwind instrument with a bright sound', 'A woodwind instrument with a smooth tone', 'A string instrument with a deep and resonant sound', 'A small wind instrument often used in blues music'],
-    "Fantasy 🦄": ['A mythical horse with a horn', 'A legendary fire-breathing creature', 'A magic practitioner with a wand', 'A tiny magical being with wings', 'A creature from folklore with pointed ears', 'A half-human, half-fish creature', 'A mythical creature with the body of a horse and the torso of a human', 'A mythical bird reborn from ashes', 'A mischievous creature often depicted as small and ugly', 'A person with magical abilities, typically female']
+    "Fantasy 🦄": ['A mythical horse with a horn', 'A legendary fire-breathing creature', 'A magic practitioner with a wand', 'A tiny magical being with wings', 'A creature from folklore with pointed ears', 'A half-human, half-fish creature', 'A mythical creature with the body of a horse and the torso of a human
 };
 ```
 
