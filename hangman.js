@@ -4,6 +4,7 @@ const words = ['apple', 'banana', 'orange', 'strawberry', 'kiwi'];
 let chosenWord = words[Math.floor(Math.random() * words.length)];
 let guessedLetters = [];
 let hangmanWord = '';
+let triesLeft = 6;
 
 function initializeHangman() {
     for (let i = 0; i < chosenWord.length; i++) {
@@ -30,6 +31,10 @@ function renderButtons() {
 function handleGuess(letter) {
     if (!guessedLetters.includes(letter)) {
         guessedLetters.push(letter);
+        if (!chosenWord.includes(letter)) {
+            triesLeft--;
+            updateHangmanImage();
+        }
         updateHangmanWord();
         renderButtons();
         checkGameStatus();
@@ -49,10 +54,14 @@ function updateHangmanWord() {
     document.getElementById('hangman-word').textContent = hangmanWord;
 }
 
+function updateHangmanImage() {
+    document.getElementById('hangman-img').src = `hangman${6 - triesLeft}.png`;
+}
+
 function checkGameStatus() {
     if (hangmanWord === chosenWord) {
         document.getElementById('hangman-status').textContent = 'You won!';
-    } else if (guessedLetters.length >= 6) {
+    } else if (triesLeft === 0) {
         document.getElementById('hangman-status').textContent = 'You lost!';
     }
 }
