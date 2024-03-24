@@ -91,6 +91,7 @@ function renderButtons() {
         const letter = String.fromCharCode(i);
         const button = document.createElement('button');
         button.textContent = letter;
+        button.classList.add('luxury-button'); // Adding a class for luxury style
         button.addEventListener('click', function() {
             handleGuess(letter);
         });
