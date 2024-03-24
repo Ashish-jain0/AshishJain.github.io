@@ -128,7 +128,7 @@ function updateHangmanWord() {
 }
 
 function updateHangmanImage() {
-    document.getElementById('hangman-img').src = `hangman${6 - triesLeft}.png`;
+    document.getElementById('hangman-img').src = `hangman${6 - triesLeft}.jpg`;
     document.getElementById('tries-left').textContent = `Tries Left: ${triesLeft}`;
 }
 
