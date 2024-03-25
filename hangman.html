@@ -3,82 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hangman Game</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(to right, #ff7e5f, #feb47b);
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-
-        #hangman-container {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            max-width: 90%;
-            position: relative; /* Added */
-        }
-
-        h1 {
-            color: #333;
-            margin-bottom: 20px;
-        }
-
-        button {
-            background-color: #ff7e5f;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            margin: 5px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        button:hover {
-            background-color: #ff6b4d;
-        }
-
-        #hangman-image img {
-            max-width: 100%;
-            height: auto;
-        }
-    </style>
+    <title>Hangman</title>
+    <link rel="stylesheet" href="hangman.css">
 </head>
 <body>
+    <h1>Hangman</h1>
     <div id="hangman-container">
-        <h1>Hangman Game</h1>
-        <div id="category-selection">
-            <h2>Select a Category:</h2>
-            <button onclick="startGame('Colors')">Colors</button>
-            <button onclick="startGame('Shapes')">Shapes</button>
-            <button onclick="startGame('Movies')">Movies</button>
-            <button onclick="startGame('Superheroes')">Superheroes</button>
-            <button onclick="startGame('Countries')">Countries</button>
-            <button onclick="startGame('Naruto')">Naruto</button>
-            <button onclick="startGame('Flowers')">Flowers</button>
-            <button onclick="startGame('Disney')">Disney</button>
-            <button onclick="startGame('HarryPotter')">HarryPotter</button>
-            <button onclick="startGame('Music')">Music</button>
-            <button onclick="startGame('Fantasy')">Fantasy</button>
-        </div>
-        <div id="hangman-game" style="display: none;">
-            <div id="category-display"></div>
-            <div id="clue"></div>
-            <div id="hangman-word"></div>
-            <div id="hangman-image">
-                <img src="hangman0.jpg" alt="Hangman" id="hangman-img">
-            </div>
-            <div id="hangman-buttons"></div>
-            <div id="hangman-status"></div>
-        </div>
+        <div id="hangman-word"></div>
+        <div id="hangman-buttons"></div>
+        <div id="hangman-status"></div>
     </div>
     <script src="hangman.js"></script>
 </body>
