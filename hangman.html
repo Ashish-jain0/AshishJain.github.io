@@ -23,6 +23,7 @@
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
             text-align: center;
             max-width: 90%;
+            position: relative; /* Added */
         }
 
         h1 {
@@ -44,36 +45,20 @@
         button:hover {
             background-color: #ff6b4d;
         }
-
-        #hangman-word {
-            font-size: 24px;
-            margin-top: 20px;
-            margin-bottom: 10px;
-        }
-
-        #hangman-image {
-            margin-top: 20px;
-        }
-
-        #hangman-status {
-            font-size: 24px;
-            font-weight: bold;
-            margin-top: 20px;
-        }
     </style>
 </head>
 <body>
     <div id="hangman-container">
-        <h1>Hangman Game</h1>
-        <div id="category" style="display: none;"></div>
-        <div id="clue" style="display: none;"></div>
+        <div id="score" style="position: absolute; top: 10px; left: 10px;"></div>
+        <div id="total-lives" style="position: absolute; top: 10px; right: 10px;"></div>
+        <div id="category" style="position: absolute; top: 50px; left: 10px;"></div>
+        <div id="clue" style="position: absolute; top: 50px; right: 10px;"></div>
         <div id="hangman-word"></div>
         <div id="hangman-image">
             <img src="hangman0.jpg" alt="Hangman" id="hangman-img">
         </div>
-        <div id="tries-left" style="display: none;"></div>
-        <div id="score" style="display: none;"></div>
-        <div id="hangman-status" style="display: none;"></div>
+        <div id="hangman-buttons"></div>
+        <div id="hangman-status" style="position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%);"></div>
     </div>
     <script src="hangman.js"></script>
 </body>
