@@ -61,23 +61,37 @@
             margin-top: 20px;
         }
 
-        #score {
+        #score-container {
+            text-align: left;
             position: absolute;
-            top: 10px;
-            left: 10px;
-            font-size: 18px;
+            top: 20px;
+            left: 20px;
         }
 
-        #total-lives {
+        #total-lives-container {
+            text-align: right;
             position: absolute;
-            top: 10px;
-            right: 10px;
-            font-size: 18px;
+            top: 20px;
+            right: 20px;
+        }
+
+        .diamond {
+            width: 20px;
+            height: 20px;
+            background: url('diamond.png') no-repeat center center;
+            background-size: contain;
+            display: inline-block;
         }
     </style>
 </head>
 <body>
     <div id="hangman-container">
+        <div id="score-container">
+            <div id="score">Score: 0</div>
+        </div>
+        <div id="total-lives-container">
+            <div id="total-lives">Total Lives: <span id="total-lives-count"></span></div>
+        </div>
         <h1>Hangman Game</h1>
         <div id="category" style="display: none;"></div>
         <div id="clue" style="display: none;"></div>
@@ -85,8 +99,9 @@
         <div id="hangman-image">
             <img src="hangman0.jpg" alt="Hangman" id="hangman-img">
         </div>
-        <div id="score" style="display: none;">Score: 0</div>
-        <div id="total-lives" style="display: none;">Total Lives: 6</div>
+        <div id="hangman-buttons">
+            <!-- Category selection buttons (if needed) -->
+        </div>
         <div id="hangman-status" style="display: none;"></div>
     </div>
     <script src="hangman.js"></script>
