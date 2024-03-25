@@ -49,16 +49,25 @@
 </head>
 <body>
     <div id="hangman-container">
-        <div id="score" style="position: absolute; top: 10px; left: 10px;"></div>
-        <div id="total-lives" style="position: absolute; top: 10px; right: 10px;"></div>
-        <div id="category" style="position: absolute; top: 50px; left: 10px;"></div>
-        <div id="clue" style="position: absolute; top: 50px; right: 10px;"></div>
-        <div id="hangman-word"></div>
-        <div id="hangman-image">
-            <img src="hangman0.jpg" alt="Hangman" id="hangman-img">
+        <h1>Hangman Game</h1>
+        <div id="category-selection">
+            <h2>Select a Category:</h2>
+            <button onclick="startGame('Colors 🎨')">Colors 🎨</button>
+            <button onclick="startGame('Shapes ⬜️')">Shapes ⬜️</button>
+            <!-- Add more category buttons as needed -->
         </div>
-        <div id="hangman-buttons"></div>
-        <div id="hangman-status" style="position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%);"></div>
+        <div id="hangman-game" style="display: none;">
+            <div id="score" style="position: absolute; top: 10px; left: 10px;"></div>
+            <div id="total-lives" style="position: absolute; top: 10px; right: 10px;"></div>
+            <div id="category" style="position: absolute; top: 50px; left: 10px;"></div>
+            <div id="clue" style="position: absolute; top: 50px; right: 10px;"></div>
+            <div id="hangman-word" style="margin-top: 100px;"></div>
+            <div id="hangman-image" style="margin-top: 20px;">
+                <img src="hangman0.jpg" alt="Hangman" id="hangman-img">
+            </div>
+            <div id="hangman-buttons" style="margin-top: 20px;"></div>
+            <div id="hangman-status" style="position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%);"></div>
+        </div>
     </div>
     <script src="hangman.js"></script>
 </body>
