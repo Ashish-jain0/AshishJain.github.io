@@ -55,24 +55,24 @@
             margin-top: 20px;
         }
 
-        #score {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            font-size: 20px;
-        }
-
-        #total-lives {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 20px;
-        }
-
         #hangman-status {
             font-size: 24px;
             font-weight: bold;
             margin-top: 20px;
+        }
+
+        #score {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 18px;
+        }
+
+        #total-lives {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 18px;
         }
     </style>
 </head>
@@ -85,8 +85,8 @@
         <div id="hangman-image">
             <img src="hangman0.jpg" alt="Hangman" id="hangman-img">
         </div>
-        <div id="score">Score: 0</div>
-        <div id="total-lives">Total Lives: 6</div>
+        <div id="score" style="display: none;">Score: 0</div>
+        <div id="total-lives" style="display: none;">Total Lives: 6</div>
         <div id="hangman-status" style="display: none;"></div>
     </div>
     <script src="hangman.js"></script>
