@@ -93,4 +93,33 @@ function handleGuess(letter) {
 }
 
 function updateHangmanWord() {
-    let newHangmanWord
+    let newHangmanWord = '';
+    for (let i = 0; i < chosenWord.length; i++) {
+        if (guessedLetters.includes(chosenWord[i])) {
+            newHangmanWord += chosenWord[i];
+        } else {
+            newHangmanWord += '_';
+        }
+    }
+    hangmanWord = newHangmanWord;
+    document.getElementById('hangman-word').textContent = hangmanWord;
+}
+
+function checkGameStatus() {
+    if (hangmanWord === chosenWord) {
+        document.getElementById('hangman-status').textContent = 'You won!';
+        score += 10;
+        setTimeout(() => {
+            showCategorySelection();
+        }, 2000);
+    } else if (triesLeft === 0) {
+        document.getElementById('hangman-status').textContent = 'You lost!';
+    }
+}
+
+function getClue(word) {
+    // Define clue logic here, for example, return the first letter of the word
+    return 'Starts with: ' + word[0];
+}
+
+initializeHangman();
