@@ -50,6 +50,10 @@ function startGame() {
     document.getElementById('hangman-container').innerHTML = '';
     renderHangman();
     renderButtons();
+    document.getElementById('score').textContent = 'Score: ' + score;
+    document.getElementById('total-lives').textContent = 'Total Lives: ' + triesLeft;
+    document.getElementById('category').textContent = 'Category: ' + chosenCategory;
+    document.getElementById('clue').textContent = 'Clue: ' + getClue(chosenWord);
 }
 
 function renderHangman() {
@@ -81,7 +85,6 @@ function handleGuess(letter) {
         guessedLetters.push(letter);
         if (!chosenWord.includes(letter)) {
             triesLeft--;
-            updateHangmanImage();
         }
         updateHangmanWord();
         renderButtons();
@@ -90,32 +93,4 @@ function handleGuess(letter) {
 }
 
 function updateHangmanWord() {
-    let newHangmanWord = '';
-    for (let i = 0; i < chosenWord.length; i++) {
-        if (guessedLetters.includes(chosenWord[i])) {
-            newHangmanWord += chosenWord[i];
-        } else {
-            newHangmanWord += '_';
-        }
-    }
-    hangmanWord = newHangmanWord;
-    document.getElementById('hangman-word').textContent = hangmanWord;
-}
-
-function updateHangmanImage() {
-    document.getElementById('hangman-img').src = `hangman${6 - triesLeft}.jpg`;
-}
-
-function checkGameStatus() {
-    if (hangmanWord === chosenWord) {
-        document.getElementById('hangman-status').textContent = 'You won!';
-        score += 10;
-        setTimeout(() => {
-            showCategorySelection();
-        }, 2000);
-    } else if (triesLeft === 0) {
-        document.getElementById('hangman-status').textContent = 'You lost!';
-    }
-}
-
-initializeHangman();
+    let newHangmanWord
