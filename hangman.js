@@ -116,14 +116,15 @@ function updateHangmanWord() {
     let newHangmanWord = '';
     for (let i = 0; i < chosenWord.length; i++) {
         if (guessedLetters.includes(chosenWord[i])) {
-            newHangmanWord += chosenWord[i];
+            newHangmanWord += chosenWord[i] + ' ';
         } else {
             newHangmanWord += '_ ';
         }
     }
     hangmanWord = newHangmanWord.trim(); // Trim to remove trailing space
-    document.getElementById('hangman-word').innerHTML = hangmanWord; // Use innerHTML to render spaces
+    document.getElementById('hangman-word').textContent = hangmanWord;
 }
+
 
 
 function updateHangmanImage() {
