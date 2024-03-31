@@ -71,12 +71,10 @@
 
         #score {
             position: absolute;
-            top: 0;
-            left: 0;
-            padding: 20px;
+            top: 10px; /* Adjust top value for vertical positioning */
+            left: 10px; /* Adjust left value for horizontal positioning */
+            padding: 10px; /* Adjust padding as needed */
             font-size: 20px;
-            background-color: #ff7e5f;
-            border-radius: 5px;
         }
     </style>
 </head>
@@ -90,7 +88,7 @@
             <img src="hangman0.jpg" alt="Hangman" id="hangman-img">
         </div>
         <div id="total-lives" style="display: none;">Total Lives: </div>
-        <button id="score" style="display: none;">Score: 0</button>
+        <div id="score" style="display: none;">Score: 0</div>
         <div id="hangman-status" style="display: none;"></div>
     </div>
     <script src="hangman.js"></script>
