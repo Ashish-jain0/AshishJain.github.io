@@ -89,18 +89,23 @@ function renderButtons() {
         const letter = String.fromCharCode(i).toUpperCase();
         const button = document.createElement('button');
         button.textContent = letter;
-        button.style.textTransform = 'uppercase';
-        button.style.fontSize = '1.5em';
-        button.addEventListener('click', function() {
-            handleGuess(letter.toLowerCase()); // Pass lowercase letter to handleGuess
-            button.disabled = true; // Disable the button after it's clicked
-            button.style.backgroundColor = 'lightgray'; // Change background color to indicate selection
-        });
+        button.classList.add('alphabet-button'); // Add a class for styling purposes
+        if (guessedLetters.includes(letter.toLowerCase())) { // Check if the letter has been guessed
+            button.classList.add('selected'); // Add 'selected' class to highlight the selected button
+            button.disabled = true; // Disable the button if it's already guessed
+        } else {
+            button.addEventListener('click', function() {
+                handleGuess(letter.toLowerCase()); // Pass lowercase letter to handleGuess
+                button.disabled = true; // Disable the button after it's clicked
+                button.classList.add('selected'); // Add 'selected' class to highlight the selected button
+            });
+        }
         buttonsContainer.appendChild(button);
     }
     updateHangmanWord(); // Add this line to ensure hangman word is properly displayed after selecting category
 }
 
+  
 
 function handleGuess(letter) {
     if (!guessedLetters.includes(letter)) {
