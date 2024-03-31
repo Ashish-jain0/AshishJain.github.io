@@ -64,8 +64,7 @@ button:hover {
 
 #score {
     position: absolute;
-    top: 10px; /* Adjust top value for vertical positioning */
-    left: 10px; /* Adjust left value for horizontal positioning */
-    padding: 10px; /* Adjust padding as needed */
+    top: 20px;
+    left: 20px;
     font-size: 20px;
 }
