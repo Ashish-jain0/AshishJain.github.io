@@ -141,6 +141,7 @@ function checkGameStatus() {
         document.getElementById('score').textContent = `Score: ${score}`;
         document.getElementById('hangman-img').src = 'hangman6.jpg'; // Image for winning
         setTimeout(() => {
+            document.getElementById('hangman-status').textContent = ''; // Clear the status message
             showCategorySelection();
         }, 2000);
     } else if (totalLives === 0) {
@@ -148,6 +149,7 @@ function checkGameStatus() {
         document.getElementById('hangman-img').src = 'Hanged.jpg'; // Image for losing
     }
 }
+
 
 
 initializeHangman();
