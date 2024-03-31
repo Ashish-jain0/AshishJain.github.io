@@ -1,136 +1,148 @@
-// Define categories and corresponding words with clues
+// hangman.js
+
 const categories = {
-    "Colors 🎨": {
-        words: ["red", "blue", "green", "yellow", "orange"],
-        clues: ["The color of an apple", "The color of the sky", "The color of grass", "The color of the sun", "The color of a carrot"]
-    },
-    "Shapes ⬜️": {
-        words: ["square", "circle", "triangle", "rectangle", "pentagon"],
-        clues: ["Has four equal sides", "Has no corners", "Has three sides", "Has two pairs of equal sides", "Has five sides"]
-    },
-    "Movies 🎥": {
-        words: ["avatar", "titanic", "inception", "jaws", "forrest gump"],
-        clues: ["A film set on Pandora", "A film about a sinking ship", "A film about dreams within dreams", "A film about a killer shark", "A film about a man with low IQ"]
-    },
-    "Superheroes 🦸": {
-        words: ["superman", "spiderman", "batman", "wonder woman", "captain america"],
-        clues: ["The man of steel", "Friendly neighborhood hero", "The Dark Knight", "Amazonian warrior", "Star-spangled Avenger"]
-    },
-    "Countries 🏳️": {
-        words: ["usa", "canada", "france", "japan", "brazil"],
-        clues: ["Land of the free", "Home of maple syrup", "Known for the Eiffel Tower", "Land of the rising sun", "Famous for the Amazon rainforest"]
-    },
-    "Naruto 🌀": {
-        words: ["naruto", "sasuke", "sakura", "kakashi", "hinata"],
-        clues: ["Main character with a dream to become Hokage", "Rival of Naruto", "Team 7's female member", "Copy ninja with a Sharingan", "Shy but determined Hyuga clan member"]
-    },
-    "Flowers 🌼": {
-        words: ["rose", "daisy", "tulip", "sunflower", "lily"],
-        clues: ["Symbol of love", "Associated with innocence", "Popular spring flower", "Follows the sun", "Symbol of purity and beauty"]
-    },
-    "Disney 🧜‍♀️": {
-        words: ["cinderella", "mickey", "ariel", "buzz", "simba"],
-        clues: ["Lost her glass slipper", "Famous mouse", "Mermaid princess", "Space ranger", "Lion king"]
-    },
-    "HarryPotter 🧙": {
-        words: ["harry", "hermione", "ron", "dumbledore", "voldemort"],
-        clues: ["The Boy Who Lived", "Smartest witch of her age", "Best friend of Harry", "Headmaster of Hogwarts", "He-Who-Must-Not-Be-Named"]
-    },
-    "Music 🎸": {
-        words: ["guitar", "piano", "violin", "drums", "saxophone"],
-        clues: ["String instrument", "88 keys", "Stringed instrument played with a bow", "Played with sticks", "Wind instrument"]
-    }
+    "Colors 🎨": ['red', 'blue', 'green', 'yellow', 'orange', 'purple'],
+    "Shapes ⬜️": ['square', 'circle', 'triangle', 'rectangle', 'hexagon'],
+    "Movies 🎥": ['avatar', 'titanic', 'inception', 'jaws', 'starwars'],
+    "Superheroes 🦸": ['superman', 'batman', 'spiderman', 'wonderwoman', 'thor'],
+    "Countries 🏳️": ['usa', 'china', 'india', 'russia', 'brazil'],
+    "Naruto 🌀": ['naruto', 'sasuke', 'sakura', 'kakashi', 'hinata'],
+    "Flowers 🌼": ['rose', 'lily', 'daisy', 'sunflower', 'tulip'],
+    "Disney 🧜‍♀️": ['mickey', 'minnie', 'donald', 'goofy', 'ariel'],
+    "HarryPotter 🧙": ['harry', 'hermione', 'ron', 'dumbledore', 'snape'],
+    "Music 🎸": ['guitar', 'piano', 'violin', 'drums', 'trumpet'],
+    "Fantasy 🦄": ['unicorn', 'dragon', 'wizard', 'fairy', 'elf']
 };
 
-// Initialize game variables
-let selectedCategory;
-let word;
-let lives;
-let guesses;
-let correctGuesses;
+const clues = {
+    "Colors 🎨": ['A primary color', 'The sky is this color', 'A type of fruit'],
+    "Shapes ⬜️": ['Has four equal sides', 'Round object', 'Three-sided figure'],
+    "Movies 🎥": ['Blue people movie', 'Ship disaster movie', 'Dream within a dream movie'],
+    "Superheroes 🦸": ['Flies and wears a cape', 'Dark knight', 'Webslinger'],
+    "Countries 🏳️": ['Star-spangled banner', 'Most populous country', 'Land of spices'],
+    "Naruto 🌀": ['Orange jumpsuit ninja', 'Uchiha clan', 'Cherry blossom girl'],
+    "Flowers 🌼": ['A symbol of love', 'Often given on Mother\'s Day', 'A type of plant'],
+    "Disney 🧜‍♀️": ['Mouse character', 'Minnie\'s boyfriend', 'Duck character'],
+    "HarryPotter 🧙": ['The boy who lived', 'Brightest witch of her age', 'You-know-who'],
+    "Music 🎸": ['Strings instrument', 'Keys instrument', 'Played with a bow'],
+    "Fantasy 🦄": ['Magical horse', 'Fire-breathing creature', 'A person with magical abilities']
+};
 
-// Function to select a random word from an array
-function selectRandomWord(words) {
-    return words[Math.floor(Math.random() * words.length)];
+let chosenCategory = null;
+let chosenWord = null;
+let chosenClue = null;
+let guessedLetters = [];
+let hangmanWord = '';
+let Total Lives = 6;
+let score = 0;
+
+function initializeHangman() {
+    showCategorySelection();
 }
 
-// Function to start the game
-function startGame(categoryName) {
-    selectedCategory = categories[categoryName];
-    if (!selectedCategory) {
-        console.error("Invalid category");
-        return;
+function showCategorySelection() {
+    const categorySelectionDiv = document.createElement('div');
+    categorySelectionDiv.id = 'category-selection';
+    categorySelectionDiv.innerHTML = '<h2>Select a Category:</h2>';
+    
+    for (const category in categories) {
+        const categoryButton = document.createElement('button');
+        categoryButton.textContent = category;
+        categoryButton.addEventListener('click', function() {
+            chosenCategory = category;
+            const index = Math.floor(Math.random() * categories[chosenCategory].length);
+            chosenWord = categories[chosenCategory][index];
+            chosenClue = clues[chosenCategory][index];
+            document.getElementById('category-selection').remove();
+            startGame();
+        });
+        categorySelectionDiv.appendChild(categoryButton);
     }
-
-    // Select a random word from the chosen category
-    word = selectRandomWord(selectedCategory.words).toLowerCase();
-    console.log("Word:", word);
-
-    // Set initial values
-    lives = 6; // Adjust number of lives as needed
-    guesses = [];
-    correctGuesses = 0;
-
-    // Display the clue
-    const clueIndex = selectedCategory.words.indexOf(word);
-    const clue = selectedCategory.clues[clueIndex];
-    console.log("Clue:", clue);
-
-    // Update display
-    document.getElementById("clue").textContent = "Clue: " + clue;
-    document.getElementById("hangman-word").textContent = "_ ".repeat(word.length);
-    document.getElementById("total-lives").textContent = "Total Lives: " + lives;
+    
+    document.getElementById('hangman-container').appendChild(categorySelectionDiv);
 }
 
-// Function to check if a letter is in the word
-function checkGuess(letter) {
-    if (guesses.includes(letter)) {
-        alert("You already guessed that letter!");
-        return;
+function startGame() {
+    document.getElementById('hangman-container').innerHTML = '';
+    const gameContainer = document.createElement('div');
+    gameContainer.innerHTML = `
+        <div id="category">Category: ${chosenCategory}</div>
+        <div id="clue">Clue: ${chosenClue}</div>
+        <div id="hangman-word"></div>
+        <div id="hangman-image">
+            <img src="hangman0.png" alt="Hangman" id="hangman-img">
+        </div>
+        <div id="tries-left">Tries Left: ${Total Lives}</div>
+        <div id="score">Score: ${score}</div>
+        <div id="hangman-buttons"></div>
+        <div id="hangman-status"></div>
+    `;
+    
+    document.getElementById('hangman-container').appendChild(gameContainer);
+    
+    for (let i = 0; i < chosenWord.length; i++) {
+        hangmanWord += '_';
     }
+    document.getElementById('hangman-word').textContent = hangmanWord;
+    renderButtons();
+}
 
-    guesses.push(letter);
+function renderButtons() {
+    const buttonsContainer = document.getElementById('hangman-buttons');
+    buttonsContainer.innerHTML = '';
+    for (let i = 97; i <= 122; i++) { // ASCII codes for lowercase letters
+        const letter = String.fromCharCode(i);
+        const button = document.createElement('button');
+        button.textContent = letter;
+        button.addEventListener('click', function() {
+            handleGuess(letter);
+        });
+        buttonsContainer.appendChild(button);
+    }
+}
 
-    if (word.includes(letter)) {
-        // Update correct guesses
-        correctGuesses += word.split(letter).length - 1;
-
-        // Update display with correctly guessed letters
-        const wordDisplay = word.split("").map(char => (guesses.includes(char) ? char : "_")).join(" ");
-        document.getElementById("hangman-word").textContent = wordDisplay;
-
-        // Check if all letters have been guessed
-        if (correctGuesses === word.length) {
-            endGame(true);
+function handleGuess(letter) {
+    if (!guessedLetters.includes(letter)) {
+        guessedLetters.push(letter);
+        if (!chosenWord.includes(letter)) {
+            Total Lives--;
+            updateHangmanImage();
         }
-    } else {
-        // Incorrect guess
-        lives--;
-        document.getElementById("total-lives").textContent = "Total Lives: " + lives;
-
-        // Update hangman image or other visuals for incorrect guesses
-        updateHangmanImage();
-
-        // Check if lives run out
-        if (lives === 0) {
-            endGame(false);
-        }
+        updateHangmanWord();
+        renderButtons();
+        checkGameStatus();
     }
 }
 
-// Function to update hangman image or other visuals for incorrect guesses
+function updateHangmanWord() {
+    let newHangmanWord = '';
+    for (let i = 0; i < chosenWord.length; i++) {
+        if (guessedLetters.includes(chosenWord[i])) {
+            newHangmanWord += chosenWord[i];
+        } else {
+            newHangmanWord += '_';
+        }
+    }
+    hangmanWord = newHangmanWord;
+    document.getElementById('hangman-word').textContent = hangmanWord;
+}
+
 function updateHangmanImage() {
-    // Add code to update hangman image based on remaining lives
+    document.getElementById('hangman-img').src = `hangman${6 - Total Lives}.png`;
+    document.getElementById('tries-left').textContent = `Tries Left: ${Total Lives}`;
 }
 
-// Function to end the game
-function endGame(win) {
-    if (win) {
-        alert("Congratulations! You guessed the word correctly.");
-    } else {
-        alert("Game over. You ran out of lives. The word was: " + word);
+function checkGameStatus() {
+    if (hangmanWord === chosenWord) {
+        document.getElementById('hangman-status').textContent = 'You won!';
+        score += 10;
+        document.getElementById('score').textContent = `Score: ${score}`;
+        setTimeout(() => {
+            showCategorySelection();
+        }, 2000);
+    } else if (Total Lives === 0) {
+        document.getElementById('hangman-status').textContent = 'You lost!';
     }
 }
 
-// Example usage:
-startGame("Colors 🎨"); // Start the game with the "Colors" category
+initializeHangman();
