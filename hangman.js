@@ -120,7 +120,7 @@ function updateHangmanWord() {
             newHangmanWord += '_';
         }
     }
-    hangmanWord = newHangmanWord;
+    hangmanWord = newHangmanWord.trim();
     document.getElementById('hangman-word').textContent = hangmanWord;
 }
 
