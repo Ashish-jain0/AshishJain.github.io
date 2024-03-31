@@ -31,7 +31,7 @@ let chosenWord = null;
 let chosenClue = null;
 let guessedLetters = [];
 let hangmanWord = '';
-let totalLives = 6;
+let totalLives = 7;
 let score = 0;
 
 function initializeHangman() {
@@ -67,9 +67,6 @@ function startGame() {
         <div id="category">Category: ${chosenCategory}</div>
         <div id="clue">Clue: ${chosenClue}</div>
         <div id="hangman-word"></div>
-        <div id="hangman-image">
-            <img src="hangman0.png" alt="Hangman" id="hangman-img">
-        </div>
         <div id="total-lives">Total Lives: ${totalLives}</div>
         <div id="score">Score: ${score}</div>
         <div id="hangman-buttons"></div>
