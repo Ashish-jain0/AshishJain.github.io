@@ -68,7 +68,7 @@ function startGame() {
         <div id="clue">Clue: ${chosenClue}</div>
         <div id="hangman-word"></div>
         <div id="total-lives">Total Lives: 💎💎💎💎💎💎💎</div>
-        <div id="score">Score: ${score}</div>
+        <div id="score">✒️ Score: ${score}</div>
         <div id="hangman-buttons"></div>
         <div id="hangman-status"></div>
         <div id="hangman-image">
@@ -144,8 +144,8 @@ function updateHangmanImage() {
 function checkGameStatus() {
     if (hangmanWord === chosenWord) {
         document.getElementById('hangman-status').textContent = 'You won!';
-        score += 10;
-        document.getElementById('score').textContent = `Score: ${score}`;
+        score++;
+        document.getElementById('score').textContent = `✒️ Score: ${score}`;
         document.getElementById('hangman-img').src = 'hangman6.jpg'; // Image for winning
         setTimeout(() => {
             document.getElementById('hangman-status').textContent = ''; // Clear the status message
