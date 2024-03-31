@@ -139,6 +139,7 @@ function checkGameStatus() {
         document.getElementById('hangman-status').textContent = 'You won!';
         score += 10;
         document.getElementById('score').textContent = `Score: ${score}`;
+        document.getElementById('hangman-img').src = 'hangman6.jpg'; // Image for winning
         setTimeout(() => {
             showCategorySelection();
         }, 2000);
@@ -147,5 +148,6 @@ function checkGameStatus() {
         document.getElementById('hangman-img').src = 'Hanged.jpg'; // Image for losing
     }
 }
+
 
 initializeHangman();
