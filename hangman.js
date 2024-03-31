@@ -96,7 +96,9 @@ function renderButtons() {
         } else {
             button.addEventListener('click', function() {
                 handleGuess(letter.toLowerCase()); // Pass lowercase letter to handleGuess
-                button.disabled = true; // Disable the button after it's clicked
+                if (!chosenWord.includes(letter.toLowerCase())) { // Check if the guess is correct
+                    button.disabled = true; // Disable the button if it's an incorrect guess
+                }
                 button.classList.add('selected'); // Add 'selected' class to highlight the selected button
             });
         }
@@ -104,6 +106,7 @@ function renderButtons() {
     }
     updateHangmanWord(); // Add this line to ensure hangman word is properly displayed after selecting category
 }
+
 
   
 
