@@ -593,12 +593,14 @@ function showCategorySelection() {
             document.getElementById('category-selection').remove();
             startGame();
             updateHangmanWord(); // Call updateHangmanWord() here
+          startGame();
         });
         categorySelectionDiv.appendChild(categoryButton);
     }
     
     document.getElementById('hangman-container').appendChild(categorySelectionDiv);
 }
+
 
 
 function startGame() {
