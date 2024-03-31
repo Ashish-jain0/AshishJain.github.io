@@ -149,19 +149,19 @@ function checkGameStatus() {
 }
 
 function showGameOverPopup() {
-    const popup = document.createElement('div');
-    popup.classList.add('popup');
-    popup.innerHTML = `
+    const popupContent = `
         <div class="popup-content">
             <p>Sorry, but you have used up all your lives. However, if you want to continue challenging yourself, get started again.</p>
             <button id="play-again-button">Play again</button>
         </div>
     `;
-    document.body.appendChild(popup);
 
-    const playAgainButton = document.getElementById('play-again-button');
+    const popupWindow = window.open('', 'popupWindow', 'width=400,height=200');
+    popupWindow.document.body.innerHTML = popupContent;
+
+    const playAgainButton = popupWindow.document.getElementById('play-again-button');
     playAgainButton.addEventListener('click', function() {
-        document.body.removeChild(popup);
+        popupWindow.close(); // Close the pop-up window
         resetGame(); // Reset the game state
         showCategorySelection(); // Show the category selection page
     });
@@ -169,6 +169,7 @@ function showGameOverPopup() {
     document.getElementById('hangman-status').textContent = 'You lost!';
     document.getElementById('hangman-img').src = 'Hanged.jpg'; // Image for losing
 }
+
 
 function resetGame() {
     chosenCategory = null;
