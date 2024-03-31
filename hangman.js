@@ -9,7 +9,7 @@ const categories = {
     "Disney 🧜‍♀️": ['eugene', 'rapunzel', 'nemo', 'aladdin', 'jasmine', 'ariel', 'elsa', 'dory', 'simba', 'aurora', 'olaf', 'anna', 'belle', 'astrid', 'hiccup', 'merida', 'dumbo', 'linguini', 'maui', 'toothless', 'eva', 'mowgli', 'woody', 'alice', 'moana', 'kristoff', 'mater', 'buzz lightyear', 'miguel'],
     "HarryPotter 🧙": ['leaky cauldron', 'quidditch', 'marauders map', 'harry potter', 'transfiguration', 'boggart', 'remembrall', 'hermione granger', 'herbology', 'muggle', 'galleon', 'alohomora', 'animagus', 'ron weasley', 'riddikulus', 'yule ball', 'apparition', 'albus dumbledore', 'the burrow', 'diagon alley', 'severus snape', 'divination', 'expecto patronum', 'floo network', 'gillyweed', 'gryffindor', 'ravenclaw', 'incendio', 'pensieve'],
     "Music 🎸": ['acoustic', 'ballad', 'chord', 'chorus', 'edm', 'grunge', 'heavy metal', 'jazz', 'mixtape', 'punk rock', 'reggae', 'remix', 'rhythm', 'tambourine', 'turntable', 'verse', 'yodel', 'saxophone', 'cello', 'synthesizer', 'composition', 'pitch', 'opera', 'concert', 'symphony', 'harmonica', 'trumpet', 'violin', 'tempo'],
-    "Fantasy 🦄": ['unicorn', 'lochness', 'apprentice', 'alchemy', 'chalice', 'conjure', 'gnome', 'pixie', 'soothsayer', 'dungeon', 'leprechaun', 'bewitch', 'realm', 'satyr', 'golem', 'griffin', 'nymph', 'dragon', 'crystal ball', 'enchantment', 'hobbit', 'mermaid', 'sorcerer', 'centaur', 'fairy', 'warlock', 'wyvern', 'phoenix', 'sphinx'],
+    "Fantasy 🦄": ['unicorn', 'lochness', 'apprentice', 'alchemy', 'chalice', 'conjure', 'gnome', 'pixie', 'soothsayer', 'dungeon', 'leprechaun', 'bewitch', 'realm', 'satyr', 'golem', 'griffin', 'nymph', 'dragon', 'crystal ball', 'enchantment', 'hobbit', 'mermaid', 'sorcerer', 'centaur', 'fairy', 'warlock', 'wyvern', 'phoenix', 'sphinx']
 };
 
 const clues = {
@@ -562,7 +562,7 @@ const clues = {
     "socialism": "Political and economic theory advocating for the collective ownership and control of production and distribution of goods",
     "theocracy": "Government in which religious leaders hold political power",
     "totalitarianism": "Government that regulates every aspect of public and private life",
-    "anarchism": "Belief in the abolition of all government and the organization of society on a voluntary, cooperative basis without recourse to force or compulsion",
+    "anarchism": "Belief in the abolition of all government and the organization of society on a voluntary, cooperative basis without recourse to force or compulsion"
 };
 
 let chosenCategory = null;
