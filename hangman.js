@@ -78,7 +78,8 @@ function startGame() {
     
     document.getElementById('hangman-container').appendChild(gameContainer);
     
-      hangmanWord = '_ '.repeat(chosenWord.length).trim();
+    for (let i = 0; i < chosenWord.length; i++) {
+        hangmanWord += '_';
     }
     document.getElementById('hangman-word').textContent = hangmanWord;
     renderButtons();
@@ -117,12 +118,13 @@ function updateHangmanWord() {
         if (guessedLetters.includes(chosenWord[i])) {
             newHangmanWord += chosenWord[i];
         } else {
-            newHangmanWord += '_';
+            newHangmanWord += '_ ';
         }
     }
-    hangmanWord = newHangmanWord.trim();
-    document.getElementById('hangman-word').textContent = hangmanWord;
+    hangmanWord = newHangmanWord.trim(); // Trim to remove trailing space
+    document.getElementById('hangman-word').innerHTML = hangmanWord; // Use innerHTML to render spaces
 }
+
 
 function updateHangmanImage() {
     document.getElementById('hangman-img').src = `hangman${6 - totalLives}.png`;
