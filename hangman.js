@@ -592,12 +592,14 @@ function showCategorySelection() {
             chosenClue = clues[chosenCategory][index];
             document.getElementById('category-selection').remove();
             startGame();
+            updateHangmanWord(); // Call updateHangmanWord() here
         });
         categorySelectionDiv.appendChild(categoryButton);
     }
     
     document.getElementById('hangman-container').appendChild(categorySelectionDiv);
 }
+
 
 function startGame() {
     document.getElementById('hangman-container').innerHTML = '';
