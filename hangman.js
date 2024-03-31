@@ -149,11 +149,7 @@ function checkGameStatus() {
             showCategorySelection();
         }, 2000);
     } else if (totalLives === 0) {
-        document.getElementById('hangman-status').textContent = 'You lost!';
-        document.getElementById('hangman-img').src = 'Hanged.jpg'; // Image for losing
-        setTimeout(() => {
-            showGameOverPopup();
-        }, 2000);
+        showGameOverPopup();
     }
 }
 
@@ -173,7 +169,9 @@ function showGameOverPopup() {
         document.body.removeChild(popup);
         showCategorySelection();
     });
-}
 
+    document.getElementById('hangman-status').textContent = 'You lost!';
+    document.getElementById('hangman-img').src = 'Hanged.jpg'; // Image for losing
+}
 
 initializeHangman();
