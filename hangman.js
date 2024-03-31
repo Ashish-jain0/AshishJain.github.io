@@ -47,8 +47,8 @@ function showCategorySelection() {
         const categoryButton = document.createElement('button');
         categoryButton.textContent = category;
         categoryButton.addEventListener('click', function() {
+            const index = Math.floor(Math.random() * categories[category].length);
             chosenCategory = category;
-            const index = Math.floor(Math.random() * categories[chosenCategory].length);
             chosenWord = categories[chosenCategory][index];
             chosenClue = clues[chosenCategory][index];
             document.getElementById('category-selection').remove();
@@ -93,7 +93,7 @@ function renderButtons() {
         const button = document.createElement('button');
         button.textContent = letter;
         button.addEventListener('click', function() {
-        handleGuess(letter);
+            handleGuess(letter);
         });
         buttonsContainer.appendChild(button);
     }
@@ -147,6 +147,5 @@ function checkGameStatus() {
         document.getElementById('hangman-img').src = 'Hanged.jpg'; // Image for losing
     }
 }
-
 
 initializeHangman();
