@@ -674,12 +674,6 @@ function updateHangmanWord() {
 }
 
 
-
-function updateHangmanImage() {
-    document.getElementById('hangman-img').src = `hangman${6 - totalLives}.png`;
-    document.getElementById('total-lives').textContent = `Total Lives: ${totalLives}`;
-}
-
 function checkGameStatus() {
     if (hangmanWord === chosenWord) {
         document.getElementById('hangman-status').textContent = 'You won!';
@@ -689,7 +683,8 @@ function checkGameStatus() {
             showCategorySelection();
         }, 2000);
     } else if (totalLives === 0) {
-        document.getElementById('hangman-status').textContent = 'You lost!';
+document.getElementById('hangman-status').textContent = 'You lost!';
+        document.getElementById('hangman-img').src = 'Hanged.jpg'; // Image for losing
     }
 }
 
