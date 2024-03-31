@@ -577,6 +577,10 @@ function initializeHangman() {
     showCategorySelection();
 }
 
+console.log(chosenCategory);
+console.log(clues[chosenCategory]);
+console.log(index);
+
 function showCategorySelection() {
     const categorySelectionDiv = document.createElement('div');
     categorySelectionDiv.id = 'category-selection';
