@@ -78,8 +78,7 @@ function startGame() {
     
     document.getElementById('hangman-container').appendChild(gameContainer);
     
-    for (let i = 0; i < chosenWord.length; i++) {
-        hangmanWord += '_';
+      hangmanWord = '_ '.repeat(chosenWord.length).trim();
     }
     document.getElementById('hangman-word').textContent = hangmanWord;
     renderButtons();
