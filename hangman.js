@@ -41,16 +41,15 @@ function initializeHangman() {
 function showCategorySelection() {
     const categorySelectionDiv = document.createElement('div');
     categorySelectionDiv.id = 'category-selection';
-    categorySelectionDiv.innerHTML = '<h2>Select a Categories 📋:</h2>';
+    categorySelectionDiv.innerHTML = '<h2>Select a Category:</h2>';
     
     for (const category in categories) {
         const categoryButton = document.createElement('button');
         categoryButton.textContent = category;
-        categoryButton.addEventListener('click', function() {
+        categoryButton.addEventListener('click', () => {
             const index = Math.floor(Math.random() * categories[category].length);
             chosenCategory = category;
-            chosenWord = categories[chosenCategory][index];
-            chosenClue = clues[chosenCategory][index];
+            [chosenWord, chosenClue] = [categories[chosenCategory][index], clues[chosenCategory][index]];
             document.getElementById('category-selection').remove();
             startGame();
         });
@@ -78,9 +77,7 @@ function startGame() {
     
     document.getElementById('hangman-container').appendChild(gameContainer);
     
-    for (let i = 0; i < chosenWord.length; i++) {
-        hangmanWord += '_';
-    }
+    hangmanWord = '_'.repeat(chosenWord.length);
     document.getElementById('hangman-word').textContent = hangmanWord;
     renderButtons();
 }
@@ -92,13 +89,10 @@ function renderButtons() {
         const letter = String.fromCharCode(i);
         const button = document.createElement('button');
         button.textContent = letter;
-        button.addEventListener('click', function() {
-            handleGuess(letter);
-        });
+        button.addEventListener('click', () => handleGuess(letter));
         buttonsContainer.appendChild(button);
     }
     updateHangmanWord(); // Add this line to ensure hangman word is properly displayed after selecting category
-    
 }
 
 function handleGuess(letter) {
@@ -115,30 +109,14 @@ function handleGuess(letter) {
 }
 
 function updateHangmanWord() {
-    let newHangmanWord = '';
-    if (!hangmanWord) {
-        for (let i = 0; i < chosenWord.length; i++) {
-            newHangmanWord += '_ ';
-        }
-        hangmanWord = newHangmanWord.trim();
-    } else {
-        for (let i = 0; i < chosenWord.length; i++) {
-            if (guessedLetters.includes(chosenWord[i])) {
-                newHangmanWord += chosenWord[i] + ' ';
-            } else {
-                newHangmanWord += '_ ';
-            }
-        }
-        hangmanWord = newHangmanWord.trim(); // Trim to remove trailing space
-    }
+    const newHangmanWord = [...chosenWord].map(char => guessedLetters.includes(char) ? char : '_').join(' ');
+    hangmanWord = newHangmanWord;
     document.getElementById('hangman-word').textContent = hangmanWord;
 }
 
 function updateHangmanImage() {
     document.getElementById('hangman-img').src = `hangman${7 - totalLives}.jpg`;
-    const diamond = '💎';
-    let remainingLives = diamond.repeat(totalLives);
-    document.getElementById('total-lives').textContent = `Total Lives: ${remainingLives}`;
+    document.getElementById('total-lives').textContent = `Total Lives: 💎`.repeat(totalLives);
 }
 
 function checkGameStatus() {
