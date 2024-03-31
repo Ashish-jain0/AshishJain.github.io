@@ -86,14 +86,21 @@ function renderButtons() {
     const buttonsContainer = document.getElementById('hangman-buttons');
     buttonsContainer.innerHTML = '';
     for (let i = 97; i <= 122; i++) { // ASCII codes for lowercase letters
-        const letter = String.fromCharCode(i);
+        const letter = String.fromCharCode(i).toUpperCase();
         const button = document.createElement('button');
         button.textContent = letter;
-        button.addEventListener('click', () => handleGuess(letter));
+        button.style.textTransform = 'uppercase';
+        button.style.fontSize = '1.5em';
+        button.addEventListener('click', function() {
+            handleGuess(letter.toLowerCase()); // Pass lowercase letter to handleGuess
+            button.disabled = true; // Disable the button after it's clicked
+            button.style.backgroundColor = 'lightgray'; // Change background color to indicate selection
+        });
         buttonsContainer.appendChild(button);
     }
     updateHangmanWord(); // Add this line to ensure hangman word is properly displayed after selecting category
 }
+
 
 function handleGuess(letter) {
     if (!guessedLetters.includes(letter)) {
