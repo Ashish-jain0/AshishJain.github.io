@@ -142,44 +142,31 @@ function checkGameStatus() {
         score++;
         document.getElementById('score').textContent = `✒️ Score: ${score}`;
         document.getElementById('hangman-img').src = 'hangman6.jpg'; // Image for winning
-        showGameOverPopup(); // Call the function to show the pop-up
+        setTimeout(() => {
+            document.getElementById('hangman-status').textContent = ''; // Clear the status message
+            showCategorySelection();
+        }, 2000);
     } else if (totalLives === 0) {
-        showGameOverPopup(); // Call the function to show the pop-up
+        document.getElementById('hangman-status').textContent = 'You lost!';
+        document.getElementById('hangman-img').src = 'Hanged.jpg'; // Image for losing
+        showGameOverPopup();
     }
 }
 
 function showGameOverPopup() {
     const popupOverlay = document.getElementById('popup-overlay');
-    const playAgainButton = document.getElementById('play-again-button');
-
-    popupOverlay.style.display = 'block';
-
-    playAgainButton.addEventListener('click', function() {
-        popupOverlay.style.display = 'none';
-        resetGame();
-        showCategorySelection();
-    });
-
-    // Prevent closing the pop-up when clicking on it
-    popupOverlay.addEventListener('click', function(event) {
-        event.stopPropagation();
-    });
+    popupOverlay.style.display = 'flex';
 }
 
-// Call the showGameOverPopup function when the game is lost
-// Add this call in the checkGameStatus function where the game is lost
-
-
-
 function resetGame() {
-    chosenCategory = null;
-    chosenWord = null;
-    chosenClue = null;
-    guessedLetters = [];
-    hangmanWord = '';
     totalLives = 7;
     score = 0;
-    document.getElementById('hangman-container').innerHTML = ''; // Clear the hangman container
+    guessedLetters = [];
+    hangmanWord = '';
+    document.getElementById('hangman-status').textContent = '';
+    document.getElementById('hangman-img').src = 'hangman0.jpg';
+    document.getElementById('score').textContent = `✒️ Score: ${score}`;
+    updateHangmanImage();
 }
 
 initializeHangman();
