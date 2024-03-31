@@ -149,26 +149,26 @@ function checkGameStatus() {
 }
 
 function showGameOverPopup() {
-    const popupContent = `
-        <div class="popup-content">
-            <p>Sorry, but you have used up all your lives. However, if you want to continue challenging yourself, get started again.</p>
-            <button id="play-again-button">Play again</button>
-        </div>
-    `;
+    const popupOverlay = document.getElementById('popup-overlay');
+    const playAgainButton = document.getElementById('play-again-button');
 
-    const popupWindow = window.open('', 'popupWindow', 'width=400,height=200');
-    popupWindow.document.body.innerHTML = popupContent;
+    popupOverlay.style.display = 'block';
 
-    const playAgainButton = popupWindow.document.getElementById('play-again-button');
     playAgainButton.addEventListener('click', function() {
-        popupWindow.close(); // Close the pop-up window
-        resetGame(); // Reset the game state
-        showCategorySelection(); // Show the category selection page
+        popupOverlay.style.display = 'none';
+        resetGame();
+        showCategorySelection();
     });
 
-    document.getElementById('hangman-status').textContent = 'You lost!';
-    document.getElementById('hangman-img').src = 'Hanged.jpg'; // Image for losing
+    // Prevent closing the pop-up when clicking on it
+    popupOverlay.addEventListener('click', function(event) {
+        event.stopPropagation();
+    });
 }
+
+// Call the showGameOverPopup function when the game is lost
+// Add this call in the checkGameStatus function where the game is lost
+
 
 
 function resetGame() {
