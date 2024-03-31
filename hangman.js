@@ -67,10 +67,13 @@ function startGame() {
         <div id="category">Category: ${chosenCategory}</div>
         <div id="clue">Clue: ${chosenClue}</div>
         <div id="hangman-word"></div>
-        <div id="total-lives">Total Lives: ${totalLives}</div>
+        <div id="total-lives">Total Lives: 💎💎💎💎💎💎💎</div>
         <div id="score">Score: ${score}</div>
         <div id="hangman-buttons"></div>
         <div id="hangman-status"></div>
+        <div id="hangman-image">
+            <img src="hangman0.png" alt="Hangman" id="hangman-img">
+        </div>
     `;
     
     document.getElementById('hangman-container').appendChild(gameContainer);
@@ -131,6 +134,13 @@ function updateHangmanWord() {
     document.getElementById('hangman-word').textContent = hangmanWord;
 }
 
+function updateHangmanImage() {
+    document.getElementById('hangman-img').src = `hangman${7 - totalLives}.jpg`;
+    const diamond = '💎';
+    let remainingLives = diamond.repeat(totalLives);
+    document.getElementById('total-lives').textContent = `Total Lives: ${remainingLives}`;
+}
+
 function checkGameStatus() {
     if (hangmanWord === chosenWord) {
         document.getElementById('hangman-status').textContent = 'You won!';
@@ -146,7 +156,5 @@ function checkGameStatus() {
         document.getElementById('hangman-img').src = 'Hanged.jpg'; // Image for losing
     }
 }
-
-
 
 initializeHangman();
