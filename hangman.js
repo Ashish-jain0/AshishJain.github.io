@@ -134,13 +134,6 @@ function updateHangmanWord() {
     document.getElementById('hangman-word').textContent = hangmanWord;
 }
 
-
-
-function updateHangmanImage() {
-    document.getElementById('hangman-img').src = `hangman${6 - totalLives}.png`;
-    document.getElementById('total-lives').textContent = `Total Lives: ${totalLives}`;
-}
-
 function checkGameStatus() {
     if (hangmanWord === chosenWord) {
         document.getElementById('hangman-status').textContent = 'You won!';
