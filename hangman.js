@@ -181,5 +181,4 @@ function resetGame() {
     document.getElementById('hangman-container').innerHTML = ''; // Clear the hangman container
 }
 
-
 initializeHangman();
