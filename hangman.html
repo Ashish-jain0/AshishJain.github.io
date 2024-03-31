@@ -70,15 +70,16 @@
         }
 
         #score {
-            position: absolute;
-            top: 0;
-            left: 0;
-            margin: 10px;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            padding: 10px;
             font-size: 20px;
         }
     </style>
 </head>
 <body>
+    <div id="score" style="display: none;">Score: 0</div>
     <div id="hangman-container">
         <h1>Hangman Game</h1>
         <div id="category" style="display: none;"></div>
@@ -88,7 +89,6 @@
             <img src="hangman0.jpg" alt="Hangman" id="hangman-img">
         </div>
         <div id="total-lives" style="display: none;">Total Lives: </div>
-        <div id="score" style="display: none;">Score: 0</div>
         <div id="hangman-status" style="display: none;"></div>
     </div>
     <script src="hangman.js"></script>
