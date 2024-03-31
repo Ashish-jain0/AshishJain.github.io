@@ -1,124 +1,136 @@
-// Hangman Game
-// Categories and corresponding words
+// Define categories and corresponding words with clues
 const categories = {
-    Colors: ["red", "blue", "green", "yellow", "purple"],
-    Shapes: ["circle", "square", "triangle", "rectangle", "hexagon"],
-    Movies: ["avatar", "titanic", "inception", "jaws", "forrest gump"],
-    Superheroes: ["spiderman", "superman", "batman", "wonder woman", "iron man"],
-    Countries: ["usa", "canada", "australia", "germany", "brazil"],
-    Naruto: ["naruto", "sasuke", "sakura", "kakashi", "hinata"],
-    Flowers: ["rose", "daisy", "tulip", "lily", "sunflower"],
-    Disney: ["mickey", "donald", "goofy", "pluto", "minnie"],
-    HarryPotter: ["harry", "hermione", "ron", "dumbledore", "snape"],
-    Music: ["guitar", "piano", "drums", "violin", "trumpet"]
+    "Colors 🎨": {
+        words: ["red", "blue", "green", "yellow", "orange"],
+        clues: ["The color of an apple", "The color of the sky", "The color of grass", "The color of the sun", "The color of a carrot"]
+    },
+    "Shapes ⬜️": {
+        words: ["square", "circle", "triangle", "rectangle", "pentagon"],
+        clues: ["Has four equal sides", "Has no corners", "Has three sides", "Has two pairs of equal sides", "Has five sides"]
+    },
+    "Movies 🎥": {
+        words: ["avatar", "titanic", "inception", "jaws", "forrest gump"],
+        clues: ["A film set on Pandora", "A film about a sinking ship", "A film about dreams within dreams", "A film about a killer shark", "A film about a man with low IQ"]
+    },
+    "Superheroes 🦸": {
+        words: ["superman", "spiderman", "batman", "wonder woman", "captain america"],
+        clues: ["The man of steel", "Friendly neighborhood hero", "The Dark Knight", "Amazonian warrior", "Star-spangled Avenger"]
+    },
+    "Countries 🏳️": {
+        words: ["usa", "canada", "france", "japan", "brazil"],
+        clues: ["Land of the free", "Home of maple syrup", "Known for the Eiffel Tower", "Land of the rising sun", "Famous for the Amazon rainforest"]
+    },
+    "Naruto 🌀": {
+        words: ["naruto", "sasuke", "sakura", "kakashi", "hinata"],
+        clues: ["Main character with a dream to become Hokage", "Rival of Naruto", "Team 7's female member", "Copy ninja with a Sharingan", "Shy but determined Hyuga clan member"]
+    },
+    "Flowers 🌼": {
+        words: ["rose", "daisy", "tulip", "sunflower", "lily"],
+        clues: ["Symbol of love", "Associated with innocence", "Popular spring flower", "Follows the sun", "Symbol of purity and beauty"]
+    },
+    "Disney 🧜‍♀️": {
+        words: ["cinderella", "mickey", "ariel", "buzz", "simba"],
+        clues: ["Lost her glass slipper", "Famous mouse", "Mermaid princess", "Space ranger", "Lion king"]
+    },
+    "HarryPotter 🧙": {
+        words: ["harry", "hermione", "ron", "dumbledore", "voldemort"],
+        clues: ["The Boy Who Lived", "Smartest witch of her age", "Best friend of Harry", "Headmaster of Hogwarts", "He-Who-Must-Not-Be-Named"]
+    },
+    "Music 🎸": {
+        words: ["guitar", "piano", "violin", "drums", "saxophone"],
+        clues: ["String instrument", "88 keys", "Stringed instrument played with a bow", "Played with sticks", "Wind instrument"]
+    }
 };
 
-// Corresponding clues for each word
-const clues = {
-    Colors: ["It's the color of love.", "It's the color of the sky.", "It's the color of grass."],
-    Shapes: ["It has no corners.", "It has four equal sides.", "It has three sides."],
-    Movies: ["A movie about a blue people.", "A movie about a sinking ship.", "A movie about dreams."],
-    Superheroes: ["He's from Krypton.", "He's the Dark Knight.", "She's an Amazon warrior."],
-    Countries: ["The land of the free.", "Known for maple syrup.", "The land down under."],
-    Naruto: ["The main character.", "His rival.", "She's from the Uchiha clan."],
-    Flowers: ["Often given on Valentine's Day.", "It's white and yellow.", "Often associated with spring."],
-    Disney: ["The famous mouse.", "His best friend.", "He's a dog."],
-    HarryPotter: ["The Boy Who Lived.", "The brightest witch of her age.", "The best friend."],
-    Music: ["Commonly used in rock bands.", "It has black and white keys.", "It's a percussion instrument."]
-};
+// Initialize game variables
+let selectedCategory;
+let word;
+let lives;
+let guesses;
+let correctGuesses;
 
-// Variables
-let chosenCategory; // Selected category
-let chosenWord; // Selected word
-let lives; // Number of lives
-let score; // Score
-let guess; // User's guess
-let guesses = []; // Stored guesses
-let wordStatus; // Word status (correctly guessed letters)
-let totalCategories = Object.keys(categories).length; // Total number of categories
-let totalWordsPerCategory = 5; // Total number of words per category
+// Function to select a random word from an array
+function selectRandomWord(words) {
+    return words[Math.floor(Math.random() * words.length)];
+}
 
-// Pick a random category and word
-function pickWord() {
-    let categoryIndex = Math.floor(Math.random() * totalCategories);
-    chosenCategory = Object.keys(categories)[categoryIndex];
-    let wordIndex = Math.floor(Math.random() * totalWordsPerCategory);
-    chosenWord = categories[chosenCategory][wordIndex];
-    // Set total lives
-    lives = chosenWord.length + 3; // Adjust the number of lives as needed
-    // Set score
-    score = 0;
-    // Initialize guesses array
+// Function to start the game
+function startGame(categoryName) {
+    selectedCategory = categories[categoryName];
+    if (!selectedCategory) {
+        console.error("Invalid category");
+        return;
+    }
+
+    // Select a random word from the chosen category
+    word = selectRandomWord(selectedCategory.words).toLowerCase();
+    console.log("Word:", word);
+
+    // Set initial values
+    lives = 6; // Adjust number of lives as needed
     guesses = [];
-    // Initialize word status
-    wordStatus = Array(chosenWord.length).fill('_');
+    correctGuesses = 0;
+
+    // Display the clue
+    const clueIndex = selectedCategory.words.indexOf(word);
+    const clue = selectedCategory.clues[clueIndex];
+    console.log("Clue:", clue);
+
+    // Update display
+    document.getElementById("clue").textContent = "Clue: " + clue;
+    document.getElementById("hangman-word").textContent = "_ ".repeat(word.length);
+    document.getElementById("total-lives").textContent = "Total Lives: " + lives;
 }
 
-// Display category and clue
-function displayCategoryAndClue() {
-    const categoryElement = document.getElementById('category');
-    const clueElement = document.getElementById('clue');
-    categoryElement.textContent = "Category: " + chosenCategory;
-    clueElement.textContent = "Clue: " + clues[chosenCategory][categories[chosenCategory].indexOf(chosenWord)];
-}
-
-// Display word status
-function displayWordStatus() {
-    document.getElementById('hangman-word').innerHTML = wordStatus.join(' ');
-}
-
-// Update total lives
-function updateTotalLives() {
-    document.getElementById('total-lives').textContent = "Total Lives: " + lives;
-}
-
-// Update score
-function updateScore() {
-    document.getElementById('score').textContent = "Score: " + score;
-}
-
-// Check if the guessed letter is in the word
+// Function to check if a letter is in the word
 function checkGuess(letter) {
-    if (guesses.includes(letter)) return; // Letter already guessed
+    if (guesses.includes(letter)) {
+        alert("You already guessed that letter!");
+        return;
+    }
+
     guesses.push(letter);
-    let isCorrectGuess = false;
-    for (let i = 0; i < chosenWord.length; i++) {
-        if (chosenWord[i] === letter) {
-            wordStatus[i] = letter;
-            isCorrectGuess = true;
+
+    if (word.includes(letter)) {
+        // Update correct guesses
+        correctGuesses += word.split(letter).length - 1;
+
+        // Update display with correctly guessed letters
+        const wordDisplay = word.split("").map(char => (guesses.includes(char) ? char : "_")).join(" ");
+        document.getElementById("hangman-word").textContent = wordDisplay;
+
+        // Check if all letters have been guessed
+        if (correctGuesses === word.length) {
+            endGame(true);
+        }
+    } else {
+        // Incorrect guess
+        lives--;
+        document.getElementById("total-lives").textContent = "Total Lives: " + lives;
+
+        // Update hangman image or other visuals for incorrect guesses
+        updateHangmanImage();
+
+        // Check if lives run out
+        if (lives === 0) {
+            endGame(false);
         }
     }
-    if (!isCorrectGuess) lives--;
-    if (lives === 0) gameOver(false); // Out of lives
-    if (wordStatus.join('') === chosenWord) gameOver(true); // Guessed the word correctly
-    if (isCorrectGuess) score++;
-    updateTotalLives();
-    updateScore();
-    displayWordStatus();
 }
 
-// Game over
-function gameOver(isWin) {
-    if (isWin) {
-        alert("Congratulations! You guessed the word correctly: " + chosenWord);
+// Function to update hangman image or other visuals for incorrect guesses
+function updateHangmanImage() {
+    // Add code to update hangman image based on remaining lives
+}
+
+// Function to end the game
+function endGame(win) {
+    if (win) {
+        alert("Congratulations! You guessed the word correctly.");
     } else {
-        alert("Game over! The word was: " + chosenWord);
+        alert("Game over. You ran out of lives. The word was: " + word);
     }
-    pickWord();
-    displayCategoryAndClue();
-    displayWordStatus();
 }
 
-// Event listener for letter buttons
-document.querySelectorAll('.letter-btn').forEach(item => {
-    item.addEventListener('click', event => {
-        checkGuess(event.target.textContent);
-    });
-});
-
-// Initialize the game
-pickWord();
-displayCategoryAndClue();
-displayWordStatus();
-updateTotalLives();
-updateScore();
+// Example usage:
+startGame("Colors 🎨"); // Start the game with the "Colors" category
