@@ -41,7 +41,7 @@ function initializeHangman() {
 function showCategorySelection() {
     const categorySelectionDiv = document.createElement('div');
     categorySelectionDiv.id = 'category-selection';
-    categorySelectionDiv.innerHTML = '<h2>Select a Category:</h2>';
+    categorySelectionDiv.innerHTML = '<h2>Select a Category 📋:</h2>';
     
     for (const category in categories) {
         const categoryButton = document.createElement('button');
