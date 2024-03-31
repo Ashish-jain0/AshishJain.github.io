@@ -162,11 +162,23 @@ function showGameOverPopup() {
     const playAgainButton = document.getElementById('play-again-button');
     playAgainButton.addEventListener('click', function() {
         document.body.removeChild(popup);
-        showCategorySelection();
+        resetGame(); // Reset the game state
+        showCategorySelection(); // Show the category selection page
     });
 
     document.getElementById('hangman-status').textContent = 'You lost!';
     document.getElementById('hangman-img').src = 'Hanged.jpg'; // Image for losing
+}
+
+function resetGame() {
+    chosenCategory = null;
+    chosenWord = null;
+    chosenClue = null;
+    guessedLetters = [];
+    hangmanWord = '';
+    totalLives = 7;
+    score = 0;
+    document.getElementById('hangman-container').innerHTML = ''; // Clear the hangman container
 }
 
 
