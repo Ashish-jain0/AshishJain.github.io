@@ -151,7 +151,29 @@ function checkGameStatus() {
     } else if (totalLives === 0) {
         document.getElementById('hangman-status').textContent = 'You lost!';
         document.getElementById('hangman-img').src = 'Hanged.jpg'; // Image for losing
+        setTimeout(() => {
+            showGameOverPopup();
+        }, 2000);
     }
 }
+
+function showGameOverPopup() {
+    const popup = document.createElement('div');
+    popup.classList.add('popup');
+    popup.innerHTML = `
+        <div class="popup-content">
+            <p>Sorry, but you have used up all your lives. However, if you want to continue challenging yourself, get started again.</p>
+            <button id="play-again-button">Play again</button>
+        </div>
+    `;
+    document.body.appendChild(popup);
+
+    const playAgainButton = document.getElementById('play-again-button');
+    playAgainButton.addEventListener('click', function() {
+        document.body.removeChild(popup);
+        showCategorySelection();
+    });
+}
+
 
 initializeHangman();
