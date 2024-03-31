@@ -116,8 +116,12 @@ function updateHangmanWord() {
 
 function updateHangmanImage() {
     document.getElementById('hangman-img').src = `hangman${7 - totalLives}.jpg`;
-    document.getElementById('total-lives').textContent = `Total Lives: 💎`.repeat(totalLives);
+    const diamond = '💎';
+    let remainingLives = diamond.repeat(totalLives);
+    document.getElementById('total-lives').textContent = ''; // Clear existing content
+    document.getElementById('total-lives').textContent = `Total Lives: ${remainingLives}`;
 }
+
 
 function checkGameStatus() {
     if (hangmanWord === chosenWord) {
