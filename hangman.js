@@ -1,5 +1,3 @@
-// hangman.js
-
 const categories = {
     "Colors 🎨": ['red', 'blue', 'green', 'yellow', 'orange', 'purple'],
     "Shapes ⬜️": ['square', 'circle', 'triangle', 'rectangle', 'hexagon'],
@@ -136,4 +134,13 @@ function checkGameStatus() {
     if (hangmanWord === chosenWord) {
         document.getElementById('hangman-status').textContent = 'You won!';
         score += 10;
-        document.getElementById('score').
+        document.getElementById('score').textContent = `Score: ${score}`;
+        setTimeout(() => {
+            showCategorySelection();
+        }, 2000);
+    } else if (totalLives === 0) {
+        document.getElementById('hangman-status').textContent = 'You lost!';
+    }
+}
+
+initializeHangman();
