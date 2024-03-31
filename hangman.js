@@ -33,7 +33,7 @@ let chosenWord = null;
 let chosenClue = null;
 let guessedLetters = [];
 let hangmanWord = '';
-let triesLeft = 6;
+let totalLives = 6;
 let score = 0;
 
 function initializeHangman() {
@@ -72,7 +72,7 @@ function startGame() {
         <div id="hangman-image">
             <img src="hangman0.png" alt="Hangman" id="hangman-img">
         </div>
-        <div id="tries-left">Tries Left: ${triesLeft}</div>
+        <div id="total-lives">Total Lives: ${totalLives}</div>
         <div id="score">Score: ${score}</div>
         <div id="hangman-buttons"></div>
         <div id="hangman-status"></div>
@@ -105,7 +105,7 @@ function handleGuess(letter) {
     if (!guessedLetters.includes(letter)) {
         guessedLetters.push(letter);
         if (!chosenWord.includes(letter)) {
-            triesLeft--;
+            totalLives--;
             updateHangmanImage();
         }
         updateHangmanWord();
@@ -128,21 +128,12 @@ function updateHangmanWord() {
 }
 
 function updateHangmanImage() {
-    document.getElementById('hangman-img').src = `hangman${6 - triesLeft}.png`;
-    document.getElementById('tries-left').textContent = `Tries Left: ${triesLeft}`;
+    document.getElementById('hangman-img').src = `hangman${6 - totalLives}.png`;
+    document.getElementById('total-lives').textContent = `Total Lives: ${totalLives}`;
 }
 
 function checkGameStatus() {
     if (hangmanWord === chosenWord) {
         document.getElementById('hangman-status').textContent = 'You won!';
         score += 10;
-        document.getElementById('score').textContent = `Score: ${score}`;
-        setTimeout(() => {
-            showCategorySelection();
-        }, 2000);
-    } else if (triesLeft === 0) {
-        document.getElementById('hangman-status').textContent = 'You lost!';
-    }
-}
-
-initializeHangman();
+        document.getElementById('score').
