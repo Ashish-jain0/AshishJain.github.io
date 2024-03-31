@@ -41,15 +41,16 @@ function initializeHangman() {
 function showCategorySelection() {
     const categorySelectionDiv = document.createElement('div');
     categorySelectionDiv.id = 'category-selection';
-    categorySelectionDiv.innerHTML = '<h2>Select a Category 📋:</h2>';
+    categorySelectionDiv.innerHTML = '<h2>Select a Categories 📋:</h2>';
     
     for (const category in categories) {
         const categoryButton = document.createElement('button');
         categoryButton.textContent = category;
-        categoryButton.addEventListener('click', () => {
+        categoryButton.addEventListener('click', function() {
             const index = Math.floor(Math.random() * categories[category].length);
             chosenCategory = category;
-            [chosenWord, chosenClue] = [categories[chosenCategory][index], clues[chosenCategory][index]];
+            chosenWord = categories[chosenCategory][index];
+            chosenClue = clues[chosenCategory][index];
             document.getElementById('category-selection').remove();
             startGame();
         });
@@ -63,7 +64,7 @@ function startGame() {
     document.getElementById('hangman-container').innerHTML = '';
     const gameContainer = document.createElement('div');
     gameContainer.innerHTML = `
-        <div id="category">Category 📋: ${chosenCategory}</div>
+        <div id="category">Category: ${chosenCategory}</div>
         <div id="clue">Clue: ${chosenClue}</div>
         <div id="hangman-word"></div>
         <div id="total-lives">Total Lives: 💎💎💎💎💎💎💎</div>
@@ -71,13 +72,15 @@ function startGame() {
         <div id="hangman-buttons"></div>
         <div id="hangman-status"></div>
         <div id="hangman-image">
-            <img src="hangman0.png" alt="Hangman" id="hangman-img">
+            <img src="hangman0.jpg" alt="Hangman" id="hangman-img">
         </div>
     `;
     
     document.getElementById('hangman-container').appendChild(gameContainer);
     
-    hangmanWord = '_'.repeat(chosenWord.length);
+    for (let i = 0; i < chosenWord.length; i++) {
+        hangmanWord += '_';
+    }
     document.getElementById('hangman-word').textContent = hangmanWord;
     renderButtons();
 }
@@ -86,29 +89,17 @@ function renderButtons() {
     const buttonsContainer = document.getElementById('hangman-buttons');
     buttonsContainer.innerHTML = '';
     for (let i = 97; i <= 122; i++) { // ASCII codes for lowercase letters
-        const letter = String.fromCharCode(i).toUpperCase();
+        const letter = String.fromCharCode(i);
         const button = document.createElement('button');
-        button.textContent = letter;
-        button.classList.add('alphabet-button'); // Add a class for styling purposes
-        if (guessedLetters.includes(letter.toLowerCase())) { // Check if the letter has been guessed
-            button.classList.add('selected'); // Add 'selected' class to highlight the selected button
-            button.disabled = true; // Disable the button if it's already guessed
-        } else {
-            button.addEventListener('click', function() {
-                handleGuess(letter.toLowerCase()); // Pass lowercase letter to handleGuess
-                if (!chosenWord.includes(letter.toLowerCase())) { // Check if the guess is correct
-                    button.disabled = true; // Disable the button if it's an incorrect guess
-                }
-                button.classList.add('selected'); // Add 'selected' class to highlight the selected button
-            });
-        }
+        button.textContent = letter.toUpperCase();
+        button.addEventListener('click', function() {
+            handleGuess(letter);
+        });
         buttonsContainer.appendChild(button);
     }
     updateHangmanWord(); // Add this line to ensure hangman word is properly displayed after selecting category
+    
 }
-
-
-  
 
 function handleGuess(letter) {
     if (!guessedLetters.includes(letter)) {
@@ -124,8 +115,22 @@ function handleGuess(letter) {
 }
 
 function updateHangmanWord() {
-    const newHangmanWord = [...chosenWord].map(char => guessedLetters.includes(char) ? char : '_').join(' ');
-    hangmanWord = newHangmanWord;
+    let newHangmanWord = '';
+    if (!hangmanWord) {
+        for (let i = 0; i < chosenWord.length; i++) {
+            newHangmanWord += '_ ';
+        }
+        hangmanWord = newHangmanWord.trim();
+    } else {
+        for (let i = 0; i < chosenWord.length; i++) {
+            if (guessedLetters.includes(chosenWord[i])) {
+                newHangmanWord += chosenWord[i] + ' ';
+            } else {
+                newHangmanWord += '_ ';
+            }
+        }
+        hangmanWord = newHangmanWord.trim(); // Trim to remove trailing space
+    }
     document.getElementById('hangman-word').textContent = hangmanWord;
 }
 
@@ -149,24 +154,13 @@ function checkGameStatus() {
     } else if (totalLives === 0) {
         document.getElementById('hangman-status').textContent = 'You lost!';
         document.getElementById('hangman-img').src = 'Hanged.jpg'; // Image for losing
-        showGameOverPopup();
+        displayPopup();
     }
 }
 
-function showGameOverPopup() {
+function displayPopup() {
     const popupOverlay = document.getElementById('popup-overlay');
-    popupOverlay.style.display = 'flex';
-}
-
-function resetGame() {
-    totalLives = 7;
-    score = 0;
-    guessedLetters = [];
-    hangmanWord = '';
-    document.getElementById('hangman-status').textContent = '';
-    document.getElementById('hangman-img').src = 'hangman0.jpg';
-    document.getElementById('score').textContent = `✒️ Score: ${score}`;
-    updateHangmanImage();
+    popupOverlay.style.display = 'block';
 }
 
 initializeHangman();
