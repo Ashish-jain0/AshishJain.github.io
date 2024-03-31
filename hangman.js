@@ -93,10 +93,12 @@ function renderButtons() {
         const button = document.createElement('button');
         button.textContent = letter;
         button.addEventListener('click', function() {
-            handleGuess(letter);
+        handleGuess(letter);
         });
         buttonsContainer.appendChild(button);
     }
+    updateHangmanWord(); // Add this line to ensure hangman word is properly displayed after selecting category
+    
 }
 
 function handleGuess(letter) {
@@ -114,14 +116,21 @@ function handleGuess(letter) {
 
 function updateHangmanWord() {
     let newHangmanWord = '';
-    for (let i = 0; i < chosenWord.length; i++) {
-        if (guessedLetters.includes(chosenWord[i])) {
-            newHangmanWord += chosenWord[i] + ' ';
-        } else {
+    if (!hangmanWord) {
+        for (let i = 0; i < chosenWord.length; i++) {
             newHangmanWord += '_ ';
         }
+        hangmanWord = newHangmanWord.trim();
+    } else {
+        for (let i = 0; i < chosenWord.length; i++) {
+            if (guessedLetters.includes(chosenWord[i])) {
+                newHangmanWord += chosenWord[i] + ' ';
+            } else {
+                newHangmanWord += '_ ';
+            }
+        }
+        hangmanWord = newHangmanWord.trim(); // Trim to remove trailing space
     }
-    hangmanWord = newHangmanWord.trim(); // Trim to remove trailing space
     document.getElementById('hangman-word').textContent = hangmanWord;
 }
 
