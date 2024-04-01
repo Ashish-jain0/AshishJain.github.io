@@ -159,14 +159,9 @@ function checkGameStatus() {
 
 
 function checkAnswer() {
-    // Simulated function to check if the answer is correct or not
-    const isCorrectAnswer = Math.random() < 0.5; // Randomly simulate correct or wrong answer
+    const isCorrectAnswer = Math.random() < 0.5; // Simulated function to check if the answer is correct or not
 
-    if (isCorrectAnswer) {
-        console.log('Correct answer!');
-        // Continue with the game logic
-    } else {
-        console.log('Wrong answer!');
+    if (!isCorrectAnswer) {
         totalLives--; // Decrement total lives
         document.getElementById('total-lives').textContent = `Total Lives: 💎`.repeat(totalLives); // Update displayed total lives
 
@@ -176,26 +171,25 @@ function checkAnswer() {
     }
 }
 
-
-function showGameOverPopup() {
-    const popup = document.createElement('div');
-    popup.classList.add('popup');
-    popup.innerHTML = `
-        <div class="popup-content">
+function displayGameOverPopup() {
+    const popupOverlay = document.createElement('div');
+    popupOverlay.id = 'popup-overlay';
+    popupOverlay.innerHTML = `
+        <div id="popup-content">
             <p>Sorry, but you have used up all your lives. However, if you want to continue challenging yourself, get started again.</p>
             <button id="play-again-button">Play again</button>
         </div>
     `;
-    document.body.appendChild(popup);
+    document.body.appendChild(popupOverlay);
 
     const playAgainButton = document.getElementById('play-again-button');
     playAgainButton.addEventListener('click', function() {
-        document.body.removeChild(popup);
+        document.body.removeChild(popupOverlay);
         showCategorySelection();
     });
 
     document.getElementById('hangman-status').textContent = 'You lost!';
     document.getElementById('hangman-img').src = 'Hanged.jpg'; // Image for losing
 }
-initializeHangman();
 
+initializeHangman();
