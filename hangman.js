@@ -158,9 +158,14 @@ function checkGameStatus() {
 
 
 function checkAnswer() {
-    const isCorrectAnswer = Math.random() < 0.5; // Simulated function to check if the answer is correct or not
+    // Simulated function to check if the answer is correct or not
+    const isCorrectAnswer = Math.random() < 0.5; // Randomly simulate correct or wrong answer
 
-    if (!isCorrectAnswer) {
+    if (isCorrectAnswer) {
+        console.log('Correct answer!');
+        // Continue with the game logic
+    } else {
+        console.log('Wrong answer!');
         totalLives--; // Decrement total lives
         document.getElementById('total-lives').textContent = `Total Lives: 💎`.repeat(totalLives); // Update displayed total lives
 
@@ -169,6 +174,7 @@ function checkAnswer() {
         }
     }
 }
+
 
 function showGameOverPopup() {
     setTimeout(() => {
