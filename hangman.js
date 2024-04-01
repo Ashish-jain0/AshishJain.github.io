@@ -160,8 +160,11 @@ function checkGameStatus() {
 
 
 function displayPopup() {
-    const popupOverlay = document.getElementById('popup-overlay');
-    popupOverlay.style.display = 'block';
+    if (!document.getElementById('popup-overlay').style.display) {
+        const popupOverlay = document.getElementById('popup-overlay');
+        popupOverlay.style.display = 'block';
+    }
 }
+
 
 initializeHangman();
