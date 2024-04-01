@@ -193,10 +193,10 @@ function showGameOverPopup() {
         document.body.appendChild(popup);
 
         const playAgainButton = document.getElementById('play-again-button');
-        playAgainButton.addEventListener('click', function() {
-            document.body.removeChild(popup);
-            showCategorySelection(); // Call the function to show category selection
-        });
+       playAgainButton.addEventListener('click', function() {
+    window.location.href = 'https://ashish-jain0.github.io/AshishJain.github.io/hangman.html';
+});
+
 
         document.getElementById('hangman-status').textContent = 'You lost!';
         document.getElementById('hangman-img').src = 'Hanged.jpg'; // Image for losing
