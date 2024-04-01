@@ -222,5 +222,4 @@ function resetGame() {
     });
 }
 
-
 initializeHangman();
