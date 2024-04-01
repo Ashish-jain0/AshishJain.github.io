@@ -195,14 +195,23 @@ function showGameOverPopup() {
         const playAgainButton = document.getElementById('play-again-button');
         playAgainButton.addEventListener('click', function() {
             document.body.removeChild(popup);
-            setTimeout(() => {
-                showCategorySelection(); // Call the function to show category selection
-            }, 100); // Ensure the removal of the popup is completed before calling showCategorySelection
+            resetGame(); // Call the function to reset the game
         });
 
         document.getElementById('hangman-status').textContent = 'You lost!';
         document.getElementById('hangman-img').src = 'Hanged.jpg'; // Image for losing
     }, 2000); // Display pop-up after 2 seconds
+}
+
+function resetGame() {
+    chosenCategory = null;
+    chosenWord = null;
+    chosenClue = null;
+    guessedLetters = [];
+    hangmanWord = '';
+    totalLives = 7;
+    score = 0;
+    showCategorySelection(); // Start the game again
 }
 
 initializeHangman();
