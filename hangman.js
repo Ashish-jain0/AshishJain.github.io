@@ -178,5 +178,6 @@ function showGameOverPopup() {
 }
 
 
+
 initializeHangman();
 
