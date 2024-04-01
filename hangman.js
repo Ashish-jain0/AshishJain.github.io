@@ -183,27 +183,26 @@ function checkAnswer() {
 let popup; // Declare popup variable outside of showGameOverPopup function
 
 function showGameOverPopup() {
-    setTimeout(() => {
-        const popup = document.createElement('div');
-        popup.classList.add('popup');
-        popup.innerHTML = `
-            <div class="popup-content">
-                <p>Sorry, but you have used up all your lives. However, if you want to continue challenging yourself, get started again.</p>
-                <button id="play-again-button">Play again</button>
-            </div>
-        `;
-        document.body.appendChild(popup);
+    // Create popup immediately without setTimeout
+    const popup = document.createElement('div');
+    popup.classList.add('popup');
+    popup.innerHTML = `
+        <div class="popup-content">
+            <p>Sorry, but you have used up all your lives. However, if you want to continue challenging yourself, get started again.</p>
+            <button id="play-again-button">Play again</button>
+        </div>
+    `;
+    document.body.appendChild(popup);
 
-        // Attach event listener for "Play again" button inside the setTimeout
-        const playAgainButton = document.getElementById('play-again-button');
-        playAgainButton.addEventListener('click', function() {
-            document.body.removeChild(popup);
-            resetGame(); // Call the function to reset the game
-        });
+    // Attach event listener for "Play again" button
+    const playAgainButton = document.getElementById('play-again-button');
+    playAgainButton.addEventListener('click', function() {
+        document.body.removeChild(popup);
+        resetGame(); // Call the function to reset the game
+    });
 
-        document.getElementById('hangman-status').textContent = 'You lost!';
-        document.getElementById('hangman-img').src = 'Hanged.jpg'; // Image for losing
-    }, 2000); // Display pop-up after 2 seconds
+    document.getElementById('hangman-status').textContent = 'You lost!';
+    document.getElementById('hangman-img').src = 'Hanged.jpg'; // Image for losing
 }
 
 function resetGame() {
