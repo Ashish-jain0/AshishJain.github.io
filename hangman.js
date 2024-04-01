@@ -152,9 +152,12 @@ function checkGameStatus() {
             showCategorySelection();
         }, 2000);
     } else if (totalLives === 0) {
-        showGameOverPopup();
+        document.getElementById('hangman-status').textContent = 'You lost!';
+        document.getElementById('hangman-img').src = 'Hanged.jpg'; // Image for losing
+        setTimeout(showGameOverPopup, 4000); // Display pop-up after 4 seconds when total lives are empty
     }
 }
+
 
 
 function checkAnswer() {
@@ -170,7 +173,7 @@ function checkAnswer() {
         document.getElementById('total-lives').textContent = `Total Lives: 💎`.repeat(totalLives); // Update displayed total lives
 
         if (totalLives === 0) {
-            setTimeout(displayGameOverPopup, 7000); // Display pop-up after 7 seconds when total lives are empty
+            setTimeout(displayGameOverPopup, 4000); // Display pop-up after 4 seconds when total lives are empty
         }
     }
 }
@@ -196,7 +199,7 @@ function showGameOverPopup() {
 
         document.getElementById('hangman-status').textContent = 'You lost!';
         document.getElementById('hangman-img').src = 'Hanged.jpg'; // Image for losing
-    }, 7000); // Display pop-up after 7 seconds
+    }, 4000); // Display pop-up after 4 seconds
 }
 
 
