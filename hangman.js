@@ -31,7 +31,7 @@ let chosenWord = null;
 let chosenClue = null;
 let guessedLetters = [];
 let hangmanWord = '';
-let totalLives = 2;
+let totalLives = 7;
 let score = 0;
 
 function initializeHangman() {
@@ -135,7 +135,7 @@ function updateHangmanWord() {
 }
 
 function updateHangmanImage() {
-    document.getElementById('hangman-img').src = `hangman${2 - totalLives}.jpg`;
+    document.getElementById('hangman-img').src = `hangman${7 - totalLives}.jpg`;
     const diamond = '💎';
     let remainingLives = diamond.repeat(totalLives);
     document.getElementById('total-lives').textContent = `Total Lives: ${remainingLives}`;
