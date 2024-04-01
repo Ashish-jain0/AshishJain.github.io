@@ -165,5 +165,3 @@ function displayPopup() {
 
 initializeHangman();
 
-
-initializeHangman();
