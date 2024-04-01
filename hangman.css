@@ -60,6 +60,7 @@ button:hover {
     top: 1px;
     right: 5px;
     font-size: 20px;
+    color: #ff7e5f; /* Ensure total lives color remains orange */
 }
 
 #score {
@@ -68,6 +69,7 @@ button:hover {
     left: 5px;
     padding: 10px;
     font-size: 20px;
+    color: #ff7e5f; /* Ensure score color remains orange */
 }
 
 /* Default styles for pop-up overlay */
@@ -82,6 +84,7 @@ button:hover {
     z-index: 999;
 }
 
+/* Default styles for pop-up content */
 #popup-content {
     background-color: white;
     padding: 20px;
