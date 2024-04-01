@@ -154,11 +154,9 @@ function checkGameStatus() {
     } else if (totalLives === 0) {
         document.getElementById('hangman-status').textContent = 'You lost!';
         document.getElementById('hangman-img').src = 'Hanged.jpg'; // Image for losing
-        if (!document.getElementById('popup-overlay').style.display) {
             displayPopup();
         }
     }
-}
 
 
 
