@@ -193,10 +193,11 @@ function showGameOverPopup() {
         document.body.appendChild(popup);
 
         const playAgainButton = document.getElementById('play-again-button');
-        playAgainButton.addEventListener('click', function() {
-            document.body.removeChild(popup);
-            resetGame(); // Call the function to reset the game
-        });
+       playAgainButton.addEventListener('click', function() {
+    document.body.removeChild(popup);
+    resetGame(); // Call the function to reset the game
+});
+
 
         document.getElementById('hangman-status').textContent = 'You lost!';
         document.getElementById('hangman-img').src = 'Hanged.jpg'; // Image for losing
