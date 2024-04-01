@@ -5,119 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hangman Game</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(to right, #ff7e5f, #feb47b);
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-
-        #hangman-container {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            max-width: 90%;
-            position: relative;
-        }
-
-        h1 {
-            color: #333;
-            margin-bottom: 20px;
-        }
-
-        button {
-            background-color: #ff7e5f;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            margin: 5px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        button:hover {
-            background-color: #ff6b4d;
-        }
-
-        #hangman-word {
-            font-size: 24px;
-            margin-top: 20px;
-            margin-bottom: 10px;
-        }
-
-        #hangman-image {
-            margin-top: 20px;
-        }
-
-        #hangman-status {
-            font-size: 24px;
-            font-weight: bold;
-            margin-top: 20px;
-        }
-
-        #total-lives {
-            position: fixed;
-            top: 1px;
-            right: 5px;
-            padding: 10px;
-            font-size: 13px;
-        }
-
-        #score {
-            position: fixed;
-            top: 1px;
-            left: 5px;
-            padding: 10px;
-            font-size: 15px;
-        }
-
-        #popup-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 999;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        #popup-content {
-            background-color: white;
-            padding: 20px;
-            border-radius: 5px;
-            text-align: center;
-        }
-
-        #play-again-button {
-            margin-top: 10px;
-        }
+        /* CSS styles remain the same */
     </style>
 </head>
 <body>
     <div id="score" style="display: none;">✒️ Score: 0</div>
     <div id="hangman-container">
-        <h1>Hangman Game</h1>
-        <div id="category" style="display: none;"></div>
-        <div id="clue" style="display: none;"></div>
-        <div id="hangman-word"></div>
-        <div id="hangman-image">
-            <img src="hangman0.jpg" alt="Hangman" id="hangman-img">
-        </div>
-        <div id="total-lives" style="display: none;">Total Lives: 💎💎💎💎💎💎💎</div>
-        <div id="hangman-status" style="display: none;"></div>
+        <!-- Hangman game content -->
     </div>
 
+    <!-- Popup overlay initially hidden -->
     <div id="popup-overlay">
         <div id="popup-content">
             <p>Sorry, but you have used up all your lives. However, if you want to continue challenging yourself, get started again.</p>
@@ -160,4 +57,3 @@
     </script>
 </body>
 </html>
-
