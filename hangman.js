@@ -158,14 +158,12 @@ function checkGameStatus() {
     }
 }
 
-
-
 function displayPopup() {
-    if (!document.getElementById('popup-overlay').style.display) {
-        const popupOverlay = document.getElementById('popup-overlay');
-        popupOverlay.style.display = 'block';
-    }
+    const popupOverlay = document.getElementById('popup-overlay');
+    popupOverlay.style.display = 'flex'; // Change display to flex to properly show the pop-up
 }
+
+initializeHangman();
 
 
 initializeHangman();
