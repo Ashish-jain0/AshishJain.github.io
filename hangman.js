@@ -156,6 +156,25 @@ function checkGameStatus() {
     }
 }
 
+function checkAnswer() {
+    // Simulated function to check if the answer is correct or not
+    const isCorrectAnswer = Math.random() < 0.5; // Randomly simulate correct or wrong answer
+
+    if (isCorrectAnswer) {
+        console.log('Correct answer!');
+        // Continue with the game logic
+    } else {
+        console.log('Wrong answer!');
+        totalLives--; // Decrement total lives
+        document.getElementById('total-lives').textContent = `Total Lives: 💎`.repeat(totalLives); // Update displayed total lives
+
+        if (totalLives === 0) {
+            displayGameOverPopup(); // Display pop-up when total lives are empty
+        }
+    }
+}
+
+
 function showGameOverPopup() {
     const popup = document.createElement('div');
     popup.classList.add('popup');
