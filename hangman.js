@@ -180,9 +180,11 @@ function checkAnswer() {
 }
 
 
+let popup; // Declare popup variable outside of showGameOverPopup function
+
 function showGameOverPopup() {
     setTimeout(() => {
-        const popup = document.createElement('div');
+        popup = document.createElement('div');
         popup.classList.add('popup');
         popup.innerHTML = `
             <div class="popup-content">
@@ -219,6 +221,5 @@ function resetGame() {
     // Reload the page
     window.location.reload();
 }
-
 
 initializeHangman();
