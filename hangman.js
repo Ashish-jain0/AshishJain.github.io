@@ -197,8 +197,5 @@ function showGameOverPopup() {
     document.getElementById('hangman-status').textContent = 'You lost!';
     document.getElementById('hangman-img').src = 'Hanged.jpg'; // Image for losing
 }
-
-
-
 initializeHangman();
 
