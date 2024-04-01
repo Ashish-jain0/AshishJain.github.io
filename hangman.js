@@ -158,6 +158,7 @@ function checkGameStatus() {
     }
 }
 
+
 function displayPopup() {
     const popupOverlay = document.getElementById('popup-overlay');
     popupOverlay.style.display = 'block';
