@@ -171,25 +171,27 @@ function checkAnswer() {
     }
 }
 
-function displayGameOverPopup() {
-    const popupOverlay = document.createElement('div');
-    popupOverlay.id = 'popup-overlay';
-    popupOverlay.innerHTML = `
-        <div id="popup-content">
-            <p>Sorry, but you have used up all your lives. However, if you want to continue challenging yourself, get started again.</p>
-            <button id="play-again-button">Play again</button>
-        </div>
-    `;
-    document.body.appendChild(popupOverlay);
+function showGameOverPopup() {
+    setTimeout(() => {
+        const popup = document.createElement('div');
+        popup.classList.add('popup');
+        popup.innerHTML = `
+            <div class="popup-content">
+                <p>Sorry, but you have used up all your lives. However, if you want to continue challenging yourself, get started again.</p>
+                <button id="play-again-button">Play again</button>
+            </div>
+        `;
+        document.body.appendChild(popup);
 
-    const playAgainButton = document.getElementById('play-again-button');
-    playAgainButton.addEventListener('click', function() {
-        document.body.removeChild(popupOverlay);
-        showCategorySelection();
-    });
+        const playAgainButton = document.getElementById('play-again-button');
+        playAgainButton.addEventListener('click', function() {
+            document.body.removeChild(popup);
+            showCategorySelection();
+        });
 
-    document.getElementById('hangman-status').textContent = 'You lost!';
-    document.getElementById('hangman-img').src = 'Hanged.jpg'; // Image for losing
+        document.getElementById('hangman-status').textContent = 'You lost!';
+        document.getElementById('hangman-img').src = 'Hanged.jpg'; // Image for losing
+    }, 7000); // Display pop-up after 7 seconds
 }
 
 initializeHangman();
