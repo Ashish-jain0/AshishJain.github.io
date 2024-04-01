@@ -211,7 +211,9 @@ function resetGame() {
     hangmanWord = '';
     totalLives = 7;
     score = 0;
+    document.getElementById('hangman-container').innerHTML = ''; // Clear the hangman container
     showCategorySelection(); // Start the game again
 }
+
 
 initializeHangman();
