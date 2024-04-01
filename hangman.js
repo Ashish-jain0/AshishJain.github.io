@@ -213,13 +213,10 @@ function resetGame() {
     totalLives = 7;
     score = 0;
     document.getElementById('hangman-container').innerHTML = ''; // Clear the hangman container
-    showCategorySelection(); // Start the game again
 
-    // Attach event listener for "Play again" button
-    const playAgainButton = document.getElementById('play-again-button');
-    playAgainButton.addEventListener('click', function() {
-        resetGame(); // Call the function to reset the game
-    });
+    // Reload the page
+    window.location.reload();
 }
+
 
 initializeHangman();
