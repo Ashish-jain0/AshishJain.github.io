@@ -157,7 +157,6 @@ function checkGameStatus() {
 }
 
 
-
 function checkAnswer() {
     const isCorrectAnswer = Math.random() < 0.5; // Simulated function to check if the answer is correct or not
 
@@ -193,5 +192,6 @@ function showGameOverPopup() {
         document.getElementById('hangman-img').src = 'Hanged.jpg'; // Image for losing
     }, 7000); // Display pop-up after 7 seconds
 }
+
 
 initializeHangman();
