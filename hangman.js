@@ -195,14 +195,12 @@ function showGameOverPopup() {
         const playAgainButton = document.getElementById('play-again-button');
         playAgainButton.addEventListener('click', function() {
             document.body.removeChild(popup);
-            showCategorySelection();
+            showCategorySelection(); // Call showCategorySelection() when "Play again" button is clicked
         });
 
         document.getElementById('hangman-status').textContent = 'You lost!';
         document.getElementById('hangman-img').src = 'Hanged.jpg'; // Image for losing
     }, 4000); // Display pop-up after 4 seconds
 }
-
-
 
 initializeHangman();
