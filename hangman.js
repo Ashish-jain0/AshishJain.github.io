@@ -156,6 +156,8 @@ function checkGameStatus() {
     }
 }
 
+
+
 function checkAnswer() {
     // Simulated function to check if the answer is correct or not
     const isCorrectAnswer = Math.random() < 0.5; // Randomly simulate correct or wrong answer
@@ -169,7 +171,7 @@ function checkAnswer() {
         document.getElementById('total-lives').textContent = `Total Lives: 💎`.repeat(totalLives); // Update displayed total lives
 
         if (totalLives === 0) {
-            displayGameOverPopup(); // Display pop-up when total lives are empty
+            setTimeout(displayGameOverPopup, 5000); // Display pop-up after 5 seconds when total lives are empty
         }
     }
 }
