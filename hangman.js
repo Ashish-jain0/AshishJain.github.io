@@ -171,7 +171,7 @@ function checkAnswer() {
         document.getElementById('total-lives').textContent = `Total Lives: 💎`.repeat(totalLives); // Update displayed total lives
 
         if (totalLives === 0) {
-            setTimeout(displayGameOverPopup, 5000); // Display pop-up after 5 seconds when total lives are empty
+            setTimeout(displayGameOverPopup, 7000); // Display pop-up after 7 seconds when total lives are empty
         }
     }
 }
