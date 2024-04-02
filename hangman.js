@@ -222,4 +222,21 @@ function resetGame() {
     window.location.reload();
 }
 
+// Function to display pop-up when the game is lost
+function displayGameOverPopup() {
+    const isMobile = window.innerWidth <= 767; // Check if viewport width is less than or equal to 767 pixels
+    if (isMobile) {
+        const popupOverlay = document.getElementById('popup-overlay');
+        popupOverlay.style.display = 'flex';
+    }
+}
+
+// Add event listener to window resize event to handle changes in viewport width
+window.addEventListener('resize', function() {
+    displayGameOverPopup(); // Call the function whenever the window is resized
+});
+
+// Call the function initially to check if the pop-up should be displayed on page load
+displayGameOverPopup();
+
 initializeHangman();
