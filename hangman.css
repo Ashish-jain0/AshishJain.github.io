@@ -72,9 +72,8 @@ button:hover {
     color: #ff7e5f; /* Ensure score color remains orange */
 }
 
-/* Styles for pop-up overlay */
 #popup-overlay {
-    display: none;
+    display: flex;
     position: fixed;
     top: 0;
     left: 0;
@@ -82,7 +81,10 @@ button:hover {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 999;
+    justify-content: center;
+    align-items: center;
 }
+
 
 /* Styles for pop-up content */
 .popup-content {
