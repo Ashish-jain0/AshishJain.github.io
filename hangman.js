@@ -106,13 +106,14 @@ function handleGuess(letter) {
         guessedLetters.push(letter);
         if (!chosenWord.includes(letter)) {
             totalLives--;
-            updateHangmanImage();
         }
         updateHangmanWord();
         renderButtons();
-        checkGameStatus();
+        checkGameStatus(); // Moved inside this function
     }
 }
+
+
 
 function updateHangmanWord() {
     let newHangmanWord = '';
