@@ -71,9 +71,6 @@ function startGame() {
         <div id="score">✒️ Score: ${score}</div>
         <div id="hangman-buttons"></div>
         <div id="hangman-status"></div>
-        <div id="hangman-image">
-            <img src="hangman0.jpg" alt="Hangman" id="hangman-img">
-        </div>
     `;
     
     document.getElementById('hangman-container').appendChild(gameContainer);
