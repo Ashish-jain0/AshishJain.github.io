@@ -184,8 +184,7 @@ let popup; // Declare popup variable outside of showGameOverPopup function
 
 function showGameOverPopup() {
     setTimeout(() => {
-        const popup = document.createElement('div');
-        popup.id = 'popup-overlay'; // Assign ID to the popup overlay
+        popup = document.createElement('div');
         popup.classList.add('popup');
         popup.innerHTML = `
             <div class="popup-content">
@@ -195,16 +194,19 @@ function showGameOverPopup() {
         `;
         document.body.appendChild(popup);
 
-        // Attach event listener for "Play again" button
-        const playAgainButton = document.getElementById('play-again-button');
-        playAgainButton.addEventListener('click', function() {
-            resetGame(); // Call the function to reset the game
-        });
-
         document.getElementById('hangman-status').textContent = 'You lost!';
         document.getElementById('hangman-img').src = 'Hanged.jpg'; // Image for losing
     }, 2000); // Display pop-up after 2 seconds
+
+    // Attach event listener for "Play again" button
+    document.addEventListener('click', function(event) {
+        if (event.target && event.target.id === 'play-again-button') {
+            document.body.removeChild(popup);
+            resetGame(); // Call the function to reset the game
+        }
+    });
 }
+
 
 function resetGame() {
     chosenCategory = null;
@@ -217,7 +219,7 @@ function resetGame() {
     document.getElementById('hangman-container').innerHTML = ''; // Clear the hangman container
 
     // Reload the page
-    location.reload();
+    window.location.reload();
 }
 
 initializeHangman();
