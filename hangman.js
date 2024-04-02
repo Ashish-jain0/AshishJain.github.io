@@ -157,8 +157,6 @@ function checkGameStatus() {
         document.getElementById('hangman-img').src = 'Hanged.jpg'; // Image for losing
         updateHangmanImage(); // Update hangman image when game is lost
         setTimeout(showGameOverPopup, 2000); // Display pop-up after 2 seconds when total lives are empty
-    } else {
-        updateHangmanImage(); // Update hangman image if neither won nor lost
     }
 }
 
