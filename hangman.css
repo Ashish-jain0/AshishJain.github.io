@@ -74,7 +74,7 @@ button:hover {
 
 /* Styles for pop-up overlay */
 #popup-overlay {
-    display: none;
+    display: flex;
     position: fixed;
     top: 0;
     left: 0;
@@ -82,6 +82,8 @@ button:hover {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 999;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Styles for pop-up content */
@@ -95,12 +97,8 @@ button:hover {
 }
 
 /* Styles for small screens (mobile devices) */
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 767px) {
     #popup-overlay {
-        display: block; /* Ensure pop-up overlay is visible on mobile */
-    }
-
-    .popup-content {
-        max-width: 90%;
+        display: flex; /* Ensure pop-up overlay is visible on mobile */
     }
 }
