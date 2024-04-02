@@ -71,8 +71,6 @@ function startGame() {
         <div id="score">✒️ Score: ${score}</div>
         <div id="hangman-buttons"></div>
         <div id="hangman-status"></div>
-    `    <div id="hangman-image">
-        </div>
     `;
     
     document.getElementById('hangman-container').appendChild(gameContainer);
@@ -105,14 +103,13 @@ function handleGuess(letter) {
         guessedLetters.push(letter);
         if (!chosenWord.includes(letter)) {
             totalLives--;
+            updateHangmanImage();
         }
         updateHangmanWord();
         renderButtons();
-        checkGameStatus(); // Moved inside this function
+        checkGameStatus();
     }
 }
-
-
 
 function updateHangmanWord() {
     let newHangmanWord = '';
@@ -135,7 +132,6 @@ function updateHangmanWord() {
 }
 
 function updateHangmanImage() {
-    document.getElementById('hangman-img').src = `hangman${7 - totalLives}.jpg`;
     const diamond = '💎';
     let remainingLives = diamond.repeat(totalLives);
     document.getElementById('total-lives').textContent = `Total Lives: ${remainingLives}`;
@@ -146,46 +142,19 @@ function checkGameStatus() {
         document.getElementById('hangman-status').textContent = 'You won!';
         score++;
         document.getElementById('score').textContent = `✒️ Score: ${score}`;
-        document.getElementById('hangman-img').src = 'hangman6.jpg'; // Image for winning
         setTimeout(() => {
             document.getElementById('hangman-status').textContent = ''; // Clear the status message
             showCategorySelection();
         }, 2000);
     } else if (totalLives === 0) {
         document.getElementById('hangman-status').textContent = 'You lost!';
-        document.getElementById('hangman-img').src = 'Hanged.jpg'; // Image for losing
-        updateHangmanImage(); // Update hangman image when game is lost
         setTimeout(showGameOverPopup, 2000); // Display pop-up after 2 seconds when total lives are empty
     }
 }
 
-
-
-
-function checkAnswer() {
-    // Simulated function to check if the answer is correct or not
-    const isCorrectAnswer = Math.random() < 0.5; // Randomly simulate correct or wrong answer
-
-    if (isCorrectAnswer) {
-        console.log('Correct answer!');
-        // Continue with the game logic
-    } else {
-        console.log('Wrong answer!');
-        totalLives--; // Decrement total lives
-        document.getElementById('total-lives').textContent = `Total Lives: 💎`.repeat(totalLives); // Update displayed total lives
-
-        if (totalLives === 0) {
-            setTimeout(displayGameOverPopup, 2000); // Display pop-up after 2 seconds when total lives are empty
-        }
-    }
-}
-
-
-let popup; // Declare popup variable outside of showGameOverPopup function
-
 function showGameOverPopup() {
     setTimeout(() => {
-        popup = document.createElement('div');
+        const popup = document.createElement('div');
         popup.classList.add('popup');
         popup.innerHTML = `
             <div class="popup-content">
@@ -194,20 +163,15 @@ function showGameOverPopup() {
             </div>
         `;
         document.body.appendChild(popup);
-
-        document.getElementById('hangman-status').textContent = 'You lost!';
-        document.getElementById('hangman-img').src = 'Hanged.jpg'; // Image for losing
     }, 2000); // Display pop-up after 2 seconds
 
     // Attach event listener for "Play again" button
     document.addEventListener('click', function(event) {
         if (event.target && event.target.id === 'play-again-button') {
-            document.body.removeChild(popup);
             resetGame(); // Call the function to reset the game
         }
     });
 }
-
 
 function resetGame() {
     chosenCategory = null;
