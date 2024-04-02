@@ -72,18 +72,19 @@ function startGame() {
         <div id="hangman-buttons"></div>
         <div id="hangman-status"></div>
         <div id="hangman-image">
-            <img src="hangman0.jpg" alt="Hangman" id="hangman-img">
+            <img src="hangman.jpg" alt="Hangman" id="hangman-img"> <!-- Changed image source to default -->
         </div>
     `;
-    
+
     document.getElementById('hangman-container').appendChild(gameContainer);
-    
+
     for (let i = 0; i < chosenWord.length; i++) {
         hangmanWord += '_';
     }
     document.getElementById('hangman-word').textContent = hangmanWord;
     renderButtons();
 }
+
 
 function renderButtons() {
     const buttonsContainer = document.getElementById('hangman-buttons');
