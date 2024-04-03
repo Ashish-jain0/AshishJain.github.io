@@ -93,7 +93,7 @@ function renderButtons() {
         button.addEventListener('click', function() {
             handleGuess(letter);
             button.disabled = true; // Disable the button after it's clicked
-            button.classList.add('selected'); // Add selected class
+            button.classList.toggle('selected'); // Toggle selected class
         });
         buttonsContainer.appendChild(button);
     }
