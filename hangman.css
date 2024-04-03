@@ -39,6 +39,13 @@ button:hover {
     background-color: #ff6b4d;
 }
 
+/* Highlight selected alphabet */
+.hangman-button.selected {
+    background-color: #ffa500; /* Orange color */
+    color: #fff; /* White color */
+}
+
+
 #hangman-word {
     font-size: 24px;
     margin-top: 20px;
