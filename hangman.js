@@ -61,7 +61,13 @@ function showCategorySelection() {
 }
 
 function startGame() {
+    // Keep the category selection div
+    const categorySelectionDiv = document.getElementById('category-selection');
+
+    // Clear the existing content inside the hangman container
     document.getElementById('hangman-container').innerHTML = '';
+
+    // Create the game container
     const gameContainer = document.createElement('div');
     gameContainer.innerHTML = `
         <div id="category">Category: ${chosenCategory}</div>
@@ -76,14 +82,19 @@ function startGame() {
         </div>
     `;
 
-    document.getElementById('hangman-container').appendChild(gameContainer);
+    // Append the game container and category selection div to the hangman container
+    const hangmanContainer = document.getElementById('hangman-container');
+    hangmanContainer.appendChild(categorySelectionDiv);
+    hangmanContainer.appendChild(gameContainer);
 
+    // Initialize hangman word and render buttons
     for (let i = 0; i < chosenWord.length; i++) {
         hangmanWord += '_';
     }
     document.getElementById('hangman-word').textContent = hangmanWord;
     renderButtons();
 }
+
 
 
 function renderButtons() {
