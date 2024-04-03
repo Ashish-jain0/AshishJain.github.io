@@ -64,8 +64,8 @@ function startGame() {
     document.getElementById('hangman-container').innerHTML = '';
     const gameContainer = document.createElement('div');
     gameContainer.innerHTML = `
-        <div id="category">Category: ${chosenCategory}</div>
-        <div id="clue">Clue: ${chosenClue}</div>
+        <div id="category">Category 📋: ${chosenCategory}</div>
+        <div id="clue">Clue 🔍: ${chosenClue}</div>
         <div id="hangman-word"></div>
         <div id="total-lives">Total Lives: 💎💎💎💎💎💎💎</div>
         <div id="score">✒️ Score: ${score}</div>
