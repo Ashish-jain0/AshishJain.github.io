@@ -90,6 +90,7 @@ function renderButtons() {
         const letter = String.fromCharCode(i);
         const button = document.createElement('button');
         button.textContent = letter.toUpperCase();
+        button.classList.add('hangman-button'); // Add class for styling
         button.addEventListener('click', function() {
             handleGuess(letter);
             button.classList.add('selected'); // Add selected class when clicked
@@ -99,7 +100,6 @@ function renderButtons() {
     }
     updateHangmanWord(); // Add this line to ensure hangman word is properly displayed after selecting category
 }
-
 
 function handleGuess(letter) {
     if (!guessedLetters.includes(letter)) {
@@ -125,6 +125,13 @@ function updateHangmanWord() {
         for (let i = 0; i < chosenWord.length; i++) {
             if (guessedLetters.includes(chosenWord[i])) {
                 newHangmanWord += chosenWord[i] + ' ';
+                // Highlight correctly guessed letters
+                const selectedButtons = document.querySelectorAll('.hangman-button.selected');
+                selectedButtons.forEach(button => {
+                    if (button.textContent.toLowerCase() === chosenWord[i]) {
+                        button.classList.add('correct');
+                    }
+                });
             } else {
                 newHangmanWord += '_ ';
             }
