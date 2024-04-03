@@ -61,13 +61,7 @@ function showCategorySelection() {
 }
 
 function startGame() {
-    // Keep the category selection div
-    const categorySelectionDiv = document.getElementById('category-selection');
-
-    // Clear the existing content inside the hangman container
     document.getElementById('hangman-container').innerHTML = '';
-
-    // Create the game container
     const gameContainer = document.createElement('div');
     gameContainer.innerHTML = `
         <div id="category">Category: ${chosenCategory}</div>
@@ -78,16 +72,12 @@ function startGame() {
         <div id="hangman-buttons"></div>
         <div id="hangman-status"></div>
         <div id="hangman-image">
-            <img src="hangman.jpg" alt="Hangman" id="hangman-img"> <!-- Changed image source to default -->
+            <img src="hangman0.jpg" alt="Hangman" id="hangman-img">
         </div>
     `;
-
-    // Append the game container and category selection div to the hangman container
-    const hangmanContainer = document.getElementById('hangman-container');
-    hangmanContainer.appendChild(categorySelectionDiv);
-    hangmanContainer.appendChild(gameContainer);
-
-    // Initialize hangman word and render buttons
+    
+    document.getElementById('hangman-container').appendChild(gameContainer);
+    
     for (let i = 0; i < chosenWord.length; i++) {
         hangmanWord += '_';
     }
@@ -95,22 +85,21 @@ function startGame() {
     renderButtons();
 }
 
-
-
 function renderButtons() {
     const buttonsContainer = document.getElementById('hangman-buttons');
     buttonsContainer.innerHTML = '';
     for (let i = 97; i <= 122; i++) { // ASCII codes for lowercase letters
-    const letter = String.fromCharCode(i);
-    const button = document.createElement('button');
-    button.textContent = letter.toUpperCase();
-    button.addEventListener('click', function(event) {
-        event.preventDefault(); // Prevent form submission
-        handleGuess(letter);
-    });
-    buttonsContainer.appendChild(button);
+        const letter = String.fromCharCode(i);
+        const button = document.createElement('button');
+        button.textContent = letter.toUpperCase();
+        button.addEventListener('click', function() {
+            handleGuess(letter);
+        });
+        buttonsContainer.appendChild(button);
+    }
+    updateHangmanWord(); // Add this line to ensure hangman word is properly displayed after selecting category
+    
 }
-
 
 function handleGuess(letter) {
     if (!guessedLetters.includes(letter)) {
