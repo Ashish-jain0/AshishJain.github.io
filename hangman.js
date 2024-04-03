@@ -82,7 +82,6 @@ function startGame() {
     renderButtons();
 }
 
-
 function renderButtons() {
     const buttonsContainer = document.getElementById('hangman-buttons');
     buttonsContainer.innerHTML = '';
@@ -93,13 +92,13 @@ function renderButtons() {
         button.classList.add('hangman-button'); // Add class for styling
         button.addEventListener('click', function() {
             handleGuess(letter);
-            button.classList.add('selected'); // Add selected class when clicked
             button.disabled = true; // Disable the button after it's clicked
         });
         buttonsContainer.appendChild(button);
     }
     updateHangmanWord(); // Add this line to ensure hangman word is properly displayed after selecting category
 }
+
 
 
 function handleGuess(letter) {
