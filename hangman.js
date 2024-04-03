@@ -132,26 +132,18 @@ function updateHangmanWord() {
     document.getElementById('hangman-word').textContent = hangmanWord;
 }
 
-function updateHangmanImage() {
-    document.getElementById('hangman-img').src = `hangman${7 - totalLives}.jpg`;
-    const diamond = '💎';
-    let remainingLives = diamond.repeat(totalLives);
-    document.getElementById('total-lives').textContent = `Total Lives: ${remainingLives}`;
-}
 
 function checkGameStatus() {
     if (hangmanWord === chosenWord) {
         document.getElementById('hangman-status').textContent = 'You won!';
         score++;
         document.getElementById('score').textContent = `✒️ Score: ${score}`;
-        document.getElementById('hangman-img').src = 'hangman6.jpg'; // Image for winning
         setTimeout(() => {
             document.getElementById('hangman-status').textContent = ''; // Clear the status message
             showCategorySelection();
         }, 2000);
     } else if (totalLives === 0) {
         document.getElementById('hangman-status').textContent = 'You lost!';
-        document.getElementById('hangman-img').src = 'Hanged.jpg'; // Image for losing
         setTimeout(showGameOverPopup, 2000); // Display pop-up after 2 seconds when total lives are empty
     }
 }
@@ -193,7 +185,6 @@ function showGameOverPopup() {
         document.body.appendChild(popup);
 
         document.getElementById('hangman-status').textContent = 'You lost!';
-        document.getElementById('hangman-img').src = 'Hanged.jpg'; // Image for losing
     }, 2000); // Display pop-up after 2 seconds
 
     // Attach event listener for "Play again" button
