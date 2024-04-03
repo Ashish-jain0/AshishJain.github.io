@@ -104,7 +104,7 @@ function handleGuess(letter) {
         guessedLetters.push(letter);
         if (!chosenWord.includes(letter)) {
             totalLives--;
-            updateHangmanImage();
+            updatetotallives();
         }
         updateHangmanWord();
         renderButtons();
@@ -131,6 +131,17 @@ function updateHangmanWord() {
     }
     document.getElementById('hangman-word').textContent = hangmanWord;
 }
+
+function updatetotallives() {
+    const diamond = '💎';
+    let remainingLives = diamond.repeat(totalLives);
+    document.getElementById('total-lives').textContent = `Total Lives: ${remainingLives}`;
+
+    if (totalLives === 0) {
+        setTimeout(showGameOverPopup, 2000); // Display pop-up after 2 seconds when total lives are empty
+    }
+}
+
 
 
 function checkGameStatus() {
