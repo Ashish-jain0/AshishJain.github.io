@@ -101,6 +101,7 @@ function renderButtons() {
     updateHangmanWord(); // Add this line to ensure hangman word is properly displayed after selecting category
 }
 
+
 function handleGuess(letter) {
     if (!guessedLetters.includes(letter)) {
         guessedLetters.push(letter);
