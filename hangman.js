@@ -161,7 +161,6 @@ function checkGameStatus() {
 
 
 
-
 function checkAnswer() {
     // Simulated function to check if the answer is correct or not
     const isCorrectAnswer = Math.random() < 0.5; // Randomly simulate correct or wrong answer
