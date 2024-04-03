@@ -151,7 +151,7 @@ function checkGameStatus() {
         document.getElementById('score').textContent = `✒️ Score: ${score}`;
         setTimeout(() => {
             document.getElementById('hangman-status').textContent = ''; // Clear the status message
-            showCategorySelection();
+            startGame(); // Restart the game
         }, 2000);
     } else if (totalLives === 0) {
         document.getElementById('hangman-status').textContent = 'You lost!';
