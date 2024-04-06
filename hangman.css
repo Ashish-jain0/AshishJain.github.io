@@ -41,13 +41,13 @@ button:hover {
 
 /* Highlight selected alphabet */
 .hangman-button {
-    background-color: #ffa500 !important; /* Orange color */
-    color: #fff !important; /* White color */
+    background-color: blue !important; /* Orange color */
+    color: grey !important; /* White color */
 }
 
 .selected {
-    background-color: red !important; /* Orange color */
-    color: #fff !important; /* White color */
+    background-color: blue !important; /* Orange color */
+    color: grey !important; /* White color */
 }
 
 #hangman-word {
