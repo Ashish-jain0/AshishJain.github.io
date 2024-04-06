@@ -93,14 +93,12 @@ function renderButtons() {
         button.addEventListener('click', function() {
             handleGuess(letter);
             button.disabled = true; // Disable the button after it's clicked
-            button.classList.toggle('selected'); // Toggle selected class
+            button.classList.add('selected'); // Add selected class
         });
         buttonsContainer.appendChild(button);
     }
     updateHangmanWord(); // Add this line to ensure hangman word is properly displayed after selecting category
 }
-
-
 
 
 function handleGuess(letter) {
