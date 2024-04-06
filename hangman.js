@@ -101,6 +101,7 @@ function renderButtons() {
 }
 
 
+
 function handleGuess(letter) {
     if (!guessedLetters.includes(letter)) {
         guessedLetters.push(letter);
