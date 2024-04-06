@@ -39,6 +39,25 @@ section#games {
     justify-content: space-between;
 }
 
+.blurry-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.blurry-underline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px; /* Adjust this value as needed to control the distance of the underline from the text */
+  width: 100%;
+  height: 2px; /* Adjust this value as needed to control the thickness of the underline */
+  background: rgba(0, 0, 0, 0.3); /* Adjust the color and opacity of the underline */
+  filter: blur(3px); /* Adjust the blur radius as needed */
+  border-radius: 2px; /* Adjust the border-radius as needed */
+  z-index: -1;
+}
+
+
 .game {
     width: 30%;
     background-color: rgba(255, 255, 255, 0.9);
