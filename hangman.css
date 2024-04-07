@@ -40,10 +40,11 @@ button:hover {
 }
 
 /* Highlight selected alphabet */
-.hangman-button {
-    background-color: blue !important; /* Orange color */
-    color: grey !important; /* White color */
+button.selected {
+    background-color: #ffa500 !important; /* Orange color */
+    color: #fff !important; /* White color */
 }
+
 
 .selected {
     background-color: blue !important; /* Orange color */
