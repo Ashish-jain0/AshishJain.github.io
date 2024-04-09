@@ -1,72 +1,33 @@
 /* Common CSS */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
     margin: 0;
     padding: 0;
-    background-image: url('company_logo.gif');
-    background-size: cover;
-    background-repeat: no-repeat;
-    color: #ffffff;
-}
-
-.container {
-    width: 80%;
-    margin: auto;
+    line-height: 1.6;
 }
 
 header {
-    background-color: rgba(0, 0, 0, 0.7);
-    text-align: center;
-    padding: 20px 0;
-}
-
-header img {
-    width: 200px; /* Adjust logo size */
-    height: auto;
-}
-
-h1 {
-    font-size: 60px;
-    margin-top: 20px;
-    color: #ffffff;
-}
-
-main {
-    padding: 20px 0;
-}
-
-section#games {
-    display: flex;
-    justify-content: space-between;
-}
-
-.btn {
-    display: inline-block;
-    padding: 10px 20px;
     background: linear-gradient(to right, #7F00FF, #E100FF);
     color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s;
-    text-decoration: none;
+    text-align: center;
+    padding: 20px 0;
+    margin-bottom: 30px;
 }
 
-.btn:hover {
-    background: linear-gradient(to right, #6A00B6, #AD00FF);
+h1, h2, h3 {
+    margin: 0;
+    font-weight: 700;
 }
 
-.game {
-    width: 30%;
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin-bottom: 20px;
-    color: #333333;
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
 }
 
-/* Footer CSS */
 footer {
     background: linear-gradient(to right, #536976, #292E49);
     color: #fff;
@@ -76,7 +37,6 @@ footer {
     position: relative; /* Change absolute to relative */
     width: 100%;
     bottom: 0;
-    margin-top: auto; /* Adjust margin-top to push footer to the bottom */
     z-index: 1;
 }
 
@@ -94,6 +54,22 @@ footer {
 
 a:hover {
     color: #eee;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: linear-gradient(to right, #7F00FF, #E100FF);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background: linear-gradient(to right, #6A00B6, #AD00FF);
 }
 
 .game-link {
