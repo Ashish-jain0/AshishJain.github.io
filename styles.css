@@ -32,13 +32,20 @@ footer {
     background: linear-gradient(to right, #536976, #292E49);
     color: #fff;
     text-align: center;
-    padding: 2px 0;
-    font-size: 13px;
-    position: relative; /* Change absolute to relative */
-    width: 100%;
+    padding: 20px 0;
+    font-size: 14px;
+    position: relative;
     bottom: 0;
-    z-index: 1;
+    width: 100%;
 }
+
+.additional-links {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    margin-top: 20px; /* Add margin-top to separate from footer */
+}
+
 
 .footer-links {
     display: flex;
