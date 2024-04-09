@@ -5,7 +5,7 @@ body {
     color: #333;
     margin: 0;
     padding: 0;
-    line-height: 0.6;
+    line-height: 1.6;
 }
 
 header {
@@ -35,36 +35,23 @@ footer {
     padding: 20px 0;
     font-size: 14px;
     position: relative;
-    bottom: 0;
-    width: 100%;
 }
 
 .additional-links {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: center;
     padding: 0 20px;
-    margin-top: 20px; /* Add margin-top to separate from footer */
 }
 
-
-.footer-links {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
+.additional-links > div {
+    flex: 0 0 50%; /* Two columns on desktop */
+    padding: 0 10px;
 }
 
-.footer-links a {
-    color: #fff;
-    text-decoration: none;
-    margin: 0 10px;
-}
-
-a:hover {
-    color: #eee;
-}
-
-.btn {
-    display: inline-block;
+.additional-links a {
+    display: block;
+    margin-bottom: 10px;
     padding: 10px 20px;
     background: linear-gradient(to right, #7F00FF, #E100FF);
     color: #fff;
@@ -75,27 +62,6 @@ a:hover {
     text-decoration: none;
 }
 
-.btn:hover {
+.additional-links a:hover {
     background: linear-gradient(to right, #6A00B6, #AD00FF);
-}
-
-.game-link {
-    display: block;
-    margin-bottom: 10px;
-}
-
-/* Responsive CSS for mobile */
-@media (max-width: 768px) {
-    .container {
-        width: 100%;
-        padding: 0 10px;
-    }
-
-    footer .footer-links {
-        flex-direction: column;
-    }
-
-    footer .footer-links a {
-        margin: 5px 0;
-    }
 }
