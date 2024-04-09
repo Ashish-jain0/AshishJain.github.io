@@ -66,8 +66,16 @@ section#games {
     color: #333333;
 }
 
+.footer-links a.btn {
+    padding: 8px 16px; /* Adjust button padding */
+    font-size: 14px; /* Adjust button font size */
+}
+
 footer {
     background-color: rgba(0, 0, 0, 0.7);
     text-align: center;
     padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: -10px; /* Adjust bottom position */
 }
