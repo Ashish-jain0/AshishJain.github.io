@@ -74,12 +74,13 @@ section#games {
 footer {
     background-color: rgba(0, 0, 0, 0.7);
     text-align: center;
-    padding: 5px 0; /* Adjust footer padding */
-    margin-top: auto; /* Ensure the footer stays at the bottom */
+    padding: 10px 0; /* Adjust footer padding */
     position: fixed;
     width: 100%;
     bottom: 0; /* Keep footer at the bottom */
+    z-index: 1; /* Ensure footer is above other elements */
 }
+
 
 footer p {
     margin: 0; /* Remove margin of <p> element inside footer */
