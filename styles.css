@@ -79,10 +79,11 @@ footer {
     width: 100%;
     bottom: 0; /* Keep footer at the bottom */
     z-index: 1; /* Ensure footer is above other elements */
+    color: #fff; /* Set text color to white */
 }
-
 
 footer p {
     margin: 0; /* Remove margin of <p> element inside footer */
 }
+
 
